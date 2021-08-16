@@ -148,9 +148,13 @@ img{
 
 .contenedor,
 .contenedor--form{
-  width: 90%;
+  width: 60%;
   display: block;
   margin: 0 auto;
+}
+
+.c_registro{
+  height: 100vh;
 }
 
 
