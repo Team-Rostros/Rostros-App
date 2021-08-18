@@ -1,10 +1,14 @@
-import React, {Fragment, useState, useRef} from 'react';
+import React, {Fragment, useState, useRef, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
+import AlertaContext from '../../context/alertas/alertaContext';
 //Assets
 import People from '../../img/people_search.png';
 
 const Registro = () => {
+    //Extraer los valores del context
+    const alertaContext = useContext(AlertaContext);
+    const {alerta, mostrarAlerta} = alertaContext;
     //State para registrase
 
     const [usuario, registrarUsuario] = useState({
@@ -48,6 +52,31 @@ const Registro = () => {
         e.preventDefault();
 
         //Validar que no haya campos vacios
+        if(nombre.trim() === '' ||
+            apellido.trim() === '' ||
+            email.trim() === '' ||
+            password.trim() === '' ||
+            rpassword.trim() === '' ||
+            pais.trim() === '' ||
+            ciudad.trim() === '' ||
+            tel.trim() === '' ||
+            dni.trim() === '' ||
+            ide.trim() === '' ){
+                mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+                return;
+        }
+
+        //Contraseña minima de 6 caracteres
+        if(password.length < 6){
+            mostrarAlerta('La contraseña debe tener minimo 6 caracteres', 'alerta-error');
+            return;
+        }
+
+        //Revisar que los dos passwords sean iguales
+        if(password !== rpassword){
+            mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
+            return;
+        }
 
         //Pasarlo a la accion
 
@@ -67,6 +96,7 @@ const Registro = () => {
 
                 <div className="grid__formulario c_registro">
                     <div className="contenedor--form ">
+                        {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                         <form
                             onSubmit={onSubmit}
                         >
