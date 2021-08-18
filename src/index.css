@@ -294,6 +294,13 @@ img{
   border: 2px solid var(--colorBlanco);
 }
 
+.recaptcha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+}
+
 /* //////////////// .Registro /////////////////////*/
 
 /* //////////////// Login /////////////////////////*/

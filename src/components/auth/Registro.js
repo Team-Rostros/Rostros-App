@@ -1,5 +1,6 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useRef} from 'react';
 import { Link } from 'react-router-dom';
+import ReCAPTCHA from "react-google-recaptcha";
 //Assets
 import People from '../../img/people_search.png';
 
@@ -29,6 +30,16 @@ const Registro = () => {
             ...usuario,
             [e.target.name]:[e.target.value]
         })
+    }
+
+    //Recaptcha
+
+    const captcha = useRef(null);
+
+    const onRecaptcha = () =>{
+        if(captcha.current.getValue()){
+            console.log('El usuario no es un robot');
+        }
     }
 
     //Cuando el usuario inicie sesion
@@ -196,11 +207,15 @@ const Registro = () => {
                                     name="boxterm"/>
                             </div>
 
-                            <div className="captcha">
-                                <div className="g-recaptcha" data-sitekey="6Ld4COIaAAAAAKuRhDr3j6AaEPth0bjatnf6Rty_"></div>
-                                <br/>
-                                {/*<!--<input type="submit" value="Submit">-->*/}
-                            </div>
+                           <div className="recaptcha">
+                            <ReCAPTCHA
+                                    ref={captcha}
+                                    sitekey="6LeDTg0cAAAAAId_gOEk7lQhrO5zJR8dxPlnX1pg"
+                                    onChange={onRecaptcha}
+                                />
+                           </div>
+
+                            
 
                             <div className="grid__botones">
                                 <input 
