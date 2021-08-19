@@ -52,28 +52,21 @@ const Registro = () => {
         e.preventDefault();
 
         //Validar que no haya campos vacios
-        if(nombre.trim() === '' ||
-            apellido.trim() === '' ||
-            email.trim() === '' ||
-            password.trim() === '' ||
-            rpassword.trim() === '' ||
-            pais.trim() === '' ||
-            ciudad.trim() === '' ||
-            tel.trim() === '' ||
-            dni.trim() === '' ||
-            ide.trim() === '' ){
-                mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
-                return;
+        if(nombre.trim === '' || apellido.trim === '' || email.trim === '' || password.trim === '' || rpassword.trim === '' || pais.trim === '' || ciudad.trim === '' || tel.trim === '' || dni.trim === '' || ide.trim === '' ){
+            mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+            return;
         }
 
         //Contraseña minima de 6 caracteres
-        if(password.length < 6){
+        if(password.[0].length < 6){
+            console.log(password.[0].length);
             mostrarAlerta('La contraseña debe tener minimo 6 caracteres', 'alerta-error');
             return;
         }
 
+
         //Revisar que los dos passwords sean iguales
-        if(password !== rpassword){
+        if(password.[0] !== rpassword.[0]){
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
@@ -111,7 +104,8 @@ const Registro = () => {
                                         id="nombre"
                                         name="nombre"
                                         value={nombre}
-                                        onChange={onChange}/>
+                                        onChange={onChange}
+                                        required/>
                                 </div>
 
                                 <div className="input">
@@ -122,7 +116,8 @@ const Registro = () => {
                                         id="apellido"
                                         name="apellido"
                                         value={apellido}
-                                        onChange={onChange}/>
+                                        onChange={onChange}
+                                        required/>
                                 </div>
                             </div>
 
@@ -134,7 +129,8 @@ const Registro = () => {
                                     id="email"
                                     name="email"
                                     value={email}
-                                    onChange={onChange}/>
+                                    onChange={onChange}
+                                    required/>
                             </div>
 
                             <div className="input-group">
@@ -146,7 +142,8 @@ const Registro = () => {
                                         id="password"
                                         name="password"
                                         value={password}
-                                        onChange={onChange}/>
+                                        onChange={onChange}
+                                        required/>
                                 </div>
 
                                 <div className="input">
@@ -157,7 +154,8 @@ const Registro = () => {
                                         id="rpassword"
                                         name="rpassword"
                                         value={rpassword}
-                                        onChange={onChange}/>
+                                        onChange={onChange}
+                                        required/>
                                 </div>
                             </div>
                             
@@ -199,7 +197,8 @@ const Registro = () => {
                                         id="tel"
                                         name="tel"
                                         onChange={onChange}
-                                        value={tel}/>
+                                        value={tel}
+                                        required/>
                                 </div>
 
                                 <div className="input">
@@ -224,7 +223,8 @@ const Registro = () => {
                                         id="ide"
                                         name="ide"
                                         onChange={onChange}
-                                        value={ide}/>
+                                        value={ide}
+                                        required/>
                                 </div>
                             </div>
 
