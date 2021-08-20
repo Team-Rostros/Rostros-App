@@ -10,7 +10,7 @@ const Error404 = () => {
 
                 <p className="nofound__parrafo no-margin" >Parece que estás perdido</p>
 
-                <a className="boton nofound__button" href="#">Volver al inicio</a>
+                <a className="boton nofound__button" href="/#">Volver al inicio</a>
 
             </div>
         </Fragment>

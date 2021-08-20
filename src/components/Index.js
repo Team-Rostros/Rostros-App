@@ -1,4 +1,7 @@
-import React, {Fragment} from 'react';
+// Predefined packages
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 //Assets
 
@@ -11,18 +14,18 @@ import coins from '../img/coins.png';
 
 const Index = () => {
     return (
-        <Fragment>
+        <>
             <nav className="nav__flex">
                 <div className="nav">
-                    <a href="index.html"><img className="nav__imagen" src={logo} alt="Logo" /> </a>
+                    <Link to="/"><img className="nav__imagen" src={logo} alt="Logo" /> </Link>
                 </div>
 
                 <div className="nav__flex">
-                    
-                        <a className="nav__enlace" href="index.html">Inicio</a>
-                        <a className="nav__enlace" href="#characters">Características</a>
-                        <a className="nav__enlace" href="terminos.html">Términos</a>
-                        <a className="nav__enlace" href="login.html">Iniciar sesión</a>
+
+                    <Link className="nav__enlace" to="index.html">Inicio</Link>
+                    <Link className="nav__enlace" to="#characters">Características</Link>
+                    <Link className="nav__enlace" to="terminos.html">Términos</Link>
+                    <Link className="nav__enlace" to="/login">Iniciar sesión</Link>
 
                 </div>
             </nav>
@@ -70,7 +73,7 @@ const Index = () => {
                                 porttitor dictum mauris.</p>
                         </div>
                     </div>
-                    
+
                 </div>
             </section>
 
@@ -81,7 +84,7 @@ const Index = () => {
                     <div className="grid">
                         <div className="grid__textobtn">
                             <p className="text__grid">Ayúdanos proporcionando información acerca de las personas desaparecidas</p>
-                            <a className="btn__gridi btn__grid--left" href="#">Únete a la búsqueda</a>
+                            <Link className="btn__gridi btn__grid--left" to="/#">Únete a la búsqueda</Link>
                         </div>
 
                         <div className="grid__imageni">
@@ -94,7 +97,7 @@ const Index = () => {
                     <div className="grid grid__reverse">
                         <div className="grid__textobtn grid__textobtn--reverse">
                             <p className="text__grid text__grid--reverse">Ayúdanos proporcionando información acerca de las personas desaparecidas</p>
-                            <a className="btn__gridi btn__gridi--reverse" href="#">Únete a la búsqueda</a>
+                            <Link className="btn__gridi btn__gridi--reverse" to="/#">Únete a la búsqueda</Link>
                         </div>
 
                         <div className="grid__imageni grid__imageni--reverse">
@@ -113,14 +116,14 @@ const Index = () => {
                             <h3 className="titulo__index titulo__index--apoyo">Voluntario</h3>
                             <img className="apoyo__img" src={clock} alt="Icono Reloj" />
                             <p className="apoyo__text">Regale su tiempo para ayudar a poner a salvo a las personas desaparecidas.</p>
-                            <a className="apoyo__enlace" href="#">Ser un voluntario</a>
+                            <Link className="apoyo__enlace" to="/#">Ser un voluntario</Link>
                         </div>
 
                         <div className="apoyo__item">
                             <h3 className="titulo__index titulo__index--apoyo">Donando</h3>
                             <img className="apoyo__img" src={coins} alt="Icono Monedas" />
                             <p className="apoyo__text">Cualquier donación pequeña o grande, puede ayudarnos a seguir siendo un salvavidas 24/7.</p>
-                            <a className="apoyo__enlace" href="donaciones.html">Haz un donativo</a>
+                            <Link className="apoyo__enlace" to="/donaciones">Haz un donativo</Link>
                         </div>
                     </div>
                 </div>
@@ -139,36 +142,36 @@ const Index = () => {
                         <div className="footer__nav">
                             <p className="titulo__footer">Navegación</p>
                             <ul className="footer__lista">
-                                <li> <a href="index.html" className="footer__li">Inicio</a></li>
-                                <li> <a href="#characters" className="footer__li">Caracteristicas</a></li>
-                                <li> <a href="terminos.html" className="footer__li">Terminos</a></li>
-                                <li> <a href="login.html" className="footer__li">Iniciar sesion</a></li>
+                                <li> <Link to="/" className="footer__li">Inicio</Link></li>
+                                <li> <Link to="/#characters" className="footer__li">Caracteristicas</Link></li>
+                                <li> <Link to="/terminos" className="footer__li">Terminos</Link></li>
+                                <li> <Link to="/login" className="footer__li">Iniciar sesion</Link></li>
                             </ul>
                         </div>
                         <div className="footer__nosotros">
                             <p className="titulo__footer">Acerca de nosotros</p>
-                
+
                             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis quae perferendis necessitatibus quis ratione molestiae.</p>
                         </div>
                         <div className="footer__sociales">
                             <p className="titulo__footer titulo__footer--last">Redes Sociales</p>
-                
+
                             <ul className="footer__lista footer__lista--last">
-                                <li> <a href="#" className="footer__li">Facebook</a></li>
-                                <li> <a href="#" className="footer__li">Instagram</a></li>
-                                <li> <a href="#" className="footer__li">Twitter</a></li>
-                                <li> <a href="#" className="footer__li">Gmail</a></li>   
+                                <li> <a href="/#" className="footer__li">Facebook</a></li>
+                                <li> <a href="/#" className="footer__li">Instagram</a></li>
+                                <li> <a href="/#" className="footer__li">Twitter</a></li>
+                                <li> <a href="/#" className="footer__li">Gmail</a></li>
                             </ul>
-                        </div> 
+                        </div>
                     </div>
                     <div className="footer__enlace">
                         <p className="centrar-texto no-margin">2021 Rostros. Todos los derechos reservados</p>
                     </div>
                 </div>
-                 
+
             </footer>
-        </Fragment>
+        </>
     );
 }
- 
+
 export default Index;

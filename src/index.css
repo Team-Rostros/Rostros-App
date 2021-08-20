@@ -234,7 +234,9 @@ img{
   gap: 2rem;
 }
 
-.input-style{
+.input-style {
+  padding-left: 10px;
+  padding-right: 10px;
   width: 100%;
   height: 4rem;
   background-color: var(--colorGris);
@@ -299,6 +301,13 @@ img{
   justify-content: center;
   align-items: center;
   margin: 2rem 0;
+}
+
+.error {
+  margin: 0px;
+  color: red;
+  text-align: center;
+  font-size: 1rem;
 }
 
 /* //////////////// .Registro /////////////////////*/
