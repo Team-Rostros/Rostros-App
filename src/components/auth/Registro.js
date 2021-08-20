@@ -1,8 +1,10 @@
+// Predefined packages
 import React, { useState, useRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import AlertaContext from '../../context/alertas/alertaContext';
-//Assets
+
+// Assets
 import People from '../../img/people_search.png';
 import { regExpDni, regExpEmail, regExpIde, regExpNames, regExpPassword, regExpPhone } from '../../utils/validator';
 

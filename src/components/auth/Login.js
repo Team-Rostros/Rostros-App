@@ -1,8 +1,14 @@
-import React, {Fragment, useState, useContext} from 'react';
+// Predefined packages
+import React, {useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
+
+// Custom packages
 import AlertaContext from '../../context/alertas/alertaContext';
-//Assets
+import { useForm } from '../../hooks/useForm';
+
+// Assets
 import People from '../../img/people_search.png';
+import { regExpEmail, regExpPassword } from '../../utils/validator';
 
 const Login = () => {
 
@@ -10,25 +16,42 @@ const Login = () => {
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
 
-    //State para iniciar sesión
+    // Custom hook form estados inicio sesión
 
-    const [usuario, guardarUsuario] = useState({
-        email:'',
+    const [values, handleInputChange] = useForm({
+        email: '',
         password: ''
     });
 
+    // Extracting Errors
+    const [error, setError] = useState({
+        eEmail: "0",
+        ePassword: "0"
+    });
+
+    const { eEmail, ePassword } = error;
+
+    // Validar campos
+    const validateAndShow = (e) => {
+
+        const { target } = e;
+        const { name } = target;
+
+        switch (name) {
+            case 'email':
+                setError({ ...error, eEmail: handleInputChange(e, regExpEmail) });
+                break;
+            case 'password':
+                setError({ ...error, ePassword: handleInputChange(e, regExpPassword) });
+                break;
+            default:
+                break;
+        }
+    }
+
     //Extrayendo el usuario
 
-    const {email, password} = usuario;
-
-    
-
-    const onChange = (e)=>{
-        guardarUsuario({
-            ...usuario,
-            [e.target.name]:[e.target.value]
-        })
-    }
+    const {email, password} = values;
 
     //Cuando el usuario inicie sesion
 
@@ -47,7 +70,7 @@ const Login = () => {
 
     }
     return (
-        <Fragment>
+        <>
             <div className="layout__grid layout__grid--login">
                 <div className="grid__sidebar grid__sidebar--login">
                     <div className="contenedor">
@@ -75,7 +98,9 @@ const Login = () => {
                                     id="email"
                                     name="email"
                                     value={email}
-                                    onChange={onChange} />
+                                    onChange={validateAndShow}
+                                />
+                                {!eEmail && <p className="error">Campo inválido</p>}
                             </div>
 
                             <div className="input">
@@ -86,28 +111,28 @@ const Login = () => {
                                     id="password"
                                     name="password"
                                     value={password}
-                                    onChange={onChange} />
+                                    onChange={validateAndShow}
+                                />
+                                {!ePassword && <p className="error">Campo inválido</p>}
                             </div>
 
 
                             
-                            <a className="enlace" href="rpassword.html">¿Olvidaste tu contraseña?</a>
+                            <Link className="enlace" to="/rpassword">¿Olvidaste tu contraseña?</Link>
                             <input 
                                 type="submit"
                                 value="Iniciar Sesión"
                                 className="boton boton--primario centrar-bloque"
                             />
-                            <Link to={'/nueva-cuenta'} className="boton boton--secundario centrar-bloque">
+                            <Link to='/nueva-cuenta' className="boton boton--secundario centrar-bloque">
                                 Registrarse
                             </Link>
-                            
-                            
                         </form>
                     </div>
                 </div>
                 
             </div>
-        </Fragment>
+        </>
     );
 }
  
