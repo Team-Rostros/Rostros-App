@@ -1,8 +1,10 @@
-import React, {Fragment} from 'react';
+// Predefined packages
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Error404 = () => {
     return (
-        <Fragment>
+        <>
             <div className="background__nofound">
 
                 <p className="nofound__titulo no-margin">404</p>
@@ -10,10 +12,10 @@ const Error404 = () => {
 
                 <p className="nofound__parrafo no-margin" >Parece que estás perdido</p>
 
-                <a className="boton nofound__button" href="/#">Volver al inicio</a>
+                <Link className="boton nofound__button" to="/">Volver al inicio</Link>
 
             </div>
-        </Fragment>
+        </>
     );
 }
  

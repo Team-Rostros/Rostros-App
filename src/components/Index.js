@@ -24,7 +24,7 @@ const Index = () => {
 
                     <Link className="nav__enlace" to="index.html">Inicio</Link>
                     <Link className="nav__enlace" to="#characters">Características</Link>
-                    <Link className="nav__enlace" to="terminos.html">Términos</Link>
+                    <Link className="nav__enlace" to="/terminos">Términos</Link>
                     <Link className="nav__enlace" to="/login">Iniciar sesión</Link>
 
                 </div>
