@@ -9,6 +9,7 @@ const Registro = () => {
     //Extraer los valores del context
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
+    
     //State para registrase
 
     const [usuario, registrarUsuario] = useState({
@@ -27,7 +28,7 @@ const Registro = () => {
 
     //Extrayendo el usuario
 
-    const {nombre, apellido, email, password, rpassword, pais, ciudad, tel, dni, ide} = usuario;
+    const {nombre, apellido, email, password, rpassword, pais, ciudad, tel, dni, ide, boxterm} = usuario;
 
     const onChange = (e)=>{
         registrarUsuario({
@@ -70,6 +71,9 @@ const Registro = () => {
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
+
+        //Validar que se activo el checkbox
+        
 
         //Pasarlo a la accion
 

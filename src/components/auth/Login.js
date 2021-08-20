@@ -1,9 +1,14 @@
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, useState, useContext} from 'react';
 import { Link } from 'react-router-dom';
+import AlertaContext from '../../context/alertas/alertaContext';
 //Assets
 import People from '../../img/people_search.png';
 
 const Login = () => {
+
+    //Extraer los valores del context
+    const alertaContext = useContext(AlertaContext);
+    const {alerta, mostrarAlerta} = alertaContext;
 
     //State para iniciar sesión
 
@@ -16,6 +21,8 @@ const Login = () => {
 
     const {email, password} = usuario;
 
+    
+
     const onChange = (e)=>{
         guardarUsuario({
             ...usuario,
@@ -27,8 +34,13 @@ const Login = () => {
 
     const onSubmit = (e) =>{
         e.preventDefault();
-
+        console.log('Llamando la funcion')
         //Validar que no haya campos vacios
+
+        if(email === '' || password === ''){
+            mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+            return;
+        }
 
         //Pasarlo a la accion
 
@@ -47,6 +59,7 @@ const Login = () => {
 
                 <div className="grid__formulario grid__formulario--login">
                     <div className="contenedor--form formulario">
+                    {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                         <form
                             onSubmit={onSubmit}
                         >
@@ -55,7 +68,7 @@ const Login = () => {
                             
 
                             <div className="input">
-                                <label className="label bold" htmlFor="email">Corrreo eléctronico</label>
+                                <label className="label bold" htmlFor="email">Correo eléctronico</label>
                                 <input 
                                     type="email"
                                     className="input-style input--alone" 
