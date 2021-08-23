@@ -19,30 +19,33 @@ import Terminos from './components/pages/Terminos';
 import VerDesaparecidos from './components/pages/VerDesaparecidos';
 
 import AlertaState from './context/alertas/alertaState';
+import AuthState from './context/autenticacion/authState';
 
 function App() {
   return (
     <AlertaState>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={Index} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/rpassword" component={RecuperarPassword} />
-          <Route exact path="/nueva-cuenta" component={Registro} />
-          <Route exact path="/terminos" component={Terminos} />
-          <Route exact path="/donaciones" component={Donaciones} />
-          <Route exact path="/anatomia-del-desaparecido" component={AnatomiaDelDesaparecido} />
-          <Route exact path="/anatomias" component={Anatomias} />
-          
-          <Route exact path="/panel" component={Panel} />
+      <AuthState>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Index} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/rpassword" component={RecuperarPassword} />
+            <Route exact path="/nueva-cuenta" component={Registro} />
+            <Route exact path="/terminos" component={Terminos} />
+            <Route exact path="/donaciones" component={Donaciones} />
+            <Route exact path="/anatomia-del-desaparecido" component={AnatomiaDelDesaparecido} />
+            <Route exact path="/anatomias" component={Anatomias} />
+            
+            <Route exact path="/panel" component={Panel} />
 
-          <Route exact path="/panel-usuario" component={PanelUsuario} />
+            <Route exact path="/panel-usuario" component={PanelUsuario} />
 
-          <Route exact path="/centro-ayuda" component={CentroAyuda} />
-          <Route exact path="/maintenance" component={Maintenance} />
-          <Route path="*" component={Error404} />
-        </Switch>
-      </Router>
+            <Route exact path="/centro-ayuda" component={CentroAyuda} />
+            <Route exact path="/maintenance" component={Maintenance} />
+            <Route path="*" component={Error404} />
+          </Switch>
+        </Router>
+      </AuthState>
     </AlertaState>
   );
 }
