@@ -16,15 +16,15 @@ import Maintenance from './components/pages/Maintenance';
 import Panel from './components/pages/Panel';
 import PanelUsuario from './components/pages/PanelUsuario';
 import Terminos from './components/pages/Terminos';
-import VerDesaparecidos from './components/pages/VerDesaparecidos';
+
 
 import AlertaState from './context/alertas/alertaState';
-import AuthState from './context/autenticacion/authState';
+
 
 function App() {
+
   return (
     <AlertaState>
-      <AuthState>
         <Router>
           <Switch>
             <Route exact path="/" component={Index} />
@@ -45,7 +45,6 @@ function App() {
             <Route path="*" component={Error404} />
           </Switch>
         </Router>
-      </AuthState>
     </AlertaState>
   );
 }
