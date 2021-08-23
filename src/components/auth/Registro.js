@@ -313,6 +313,7 @@ const Registro = () => {
                                     type="checkbox"
                                     id="boxterm"
                                     name="boxterm"
+                                    className="box__terms"
                                 />
                             </div>
 

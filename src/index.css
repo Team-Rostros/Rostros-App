@@ -247,8 +247,11 @@ img{
 .check{
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
   gap: 2rem;
 }
+
+
 
 .check__textazul{
   color: var(--colorPrimarioOscuro);

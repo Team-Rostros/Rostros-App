@@ -22,6 +22,14 @@ const AuthState = props => {
     const [state, dispatch] = useReducer(AuthReducer, initialState);
 
     //Funciones
+
+    const registrarUsuario = async datos => {
+        try{
+
+        }catch(error){
+            console.log(error);
+        }
+    }
     return (
         <AuthContext.Provider
             value={{
