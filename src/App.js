@@ -16,6 +16,7 @@ import Maintenance from './components/pages/Maintenance';
 import Panel from './components/pages/Panel';
 import PanelUsuario from './components/pages/PanelUsuario';
 import Terminos from './components/pages/Terminos';
+import MisPublicaciones from './components/pages/MisPublicaciones';
 
 
 import AlertaState from './context/alertas/alertaState';
@@ -43,6 +44,7 @@ function App() {
 
               <Route exact path="/centro-ayuda" component={CentroAyuda} />
               <Route exact path="/maintenance" component={Maintenance} />
+              <Route exact path="/mis-publicaciones" component={MisPublicaciones} />
               <Route path="*" component={Error404} />
             </Switch>
           </Router>

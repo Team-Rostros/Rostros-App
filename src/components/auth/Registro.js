@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useRef, useContext} from 'react';
+import React, {Fragment, useState, useRef, useEffect, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import AlertaContext from '../../context/alertas/alertaContext';
@@ -6,14 +6,27 @@ import AuthContext from '../../context/autenticacion/authContext';
 //Assets
 import People from '../../img/people_search.png';
 
-const Registro = () => {
+const Registro = (props) => {
     //Extraer los valores del context
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
 
     //Extraer los valores del context
     const authContext = useContext(AuthContext);
-    const{registrarUsuario} = authContext;
+    const{mensaje, autenticado, registrarUsuario} = authContext;
+    
+    //En caso de que el usuario este
+    //Autenticado / Registrado
+
+    useEffect(()=>{
+        if(autenticado){
+            props.history.push('/mis-publicaciones');
+        }
+
+        if(mensaje){
+            mostrarAlerta(mensaje.msg, mensaje.categoria);
+        }
+    }, [mensaje, autenticado, props.history]);
     
     //State para registrase
 
@@ -28,17 +41,16 @@ const Registro = () => {
         tel:'',
         dni:'',
         ide:''
-
     });
 
     //Extrayendo el usuario
 
-    const {nombre, apellido, email, password, rpassword, pais, ciudad, tel, dni, ide, boxterm} = usuario;
+    const {nombre, apellido, email, password, rpassword, pais, ciudad, tel, dni, ide} = usuario;
 
     const onChange = (e)=>{
         guardarUsuario({
             ...usuario,
-            [e.target.name]:[e.target.value]
+            [e.target.name]:e.target.value
         })
     }
 
@@ -48,7 +60,7 @@ const Registro = () => {
 
     const onRecaptcha = () =>{
         if(captcha.current.getValue()){
-            console.log('El usuario no es un robot');
+            //console.log('El usuario no es un robot');
         }
     }
 
@@ -64,8 +76,7 @@ const Registro = () => {
         }
 
         //Contraseña minima de 6 caracteres
-        if(password.[0].length < 6){
-            console.log(password.[0].length);
+        if(password.length < 6){
             mostrarAlerta('La contraseña debe tener minimo 6 caracteres', 'alerta-error');
             return;
         }
@@ -76,34 +87,23 @@ const Registro = () => {
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
-
-        //Validar que se activo el checkbox
         
-
         //Pasarlo a la accion
 
-        const nombreS = nombre.toString();
-        const apellidoS = apellido.toString();
-        const emailS = email.toString();
-        const passwordS = password.toString();
-        const paisS = pais.toString();
-        const ciudadS = ciudad.toString();
-        const telS = tel.toString();
-        const dniS = dni.toString();
-        const ideS = ide.toString();
         
 
         registrarUsuario({
-            nombreS,
-            apellidoS,
-            emailS,
-            passwordS,
-            paisS,
-            ciudadS,
-            telS,
-            dniS,
-            ideS
-        });
+            nombre,
+            apellido,
+            email,
+            password,
+            pais,
+            ciudad,
+            tel,
+            dni,
+            ide
+        }).toString();
+
         
 
 
