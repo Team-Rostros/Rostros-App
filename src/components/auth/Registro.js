@@ -2,7 +2,7 @@ import React, {Fragment, useState, useRef, useContext} from 'react';
 import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import AlertaContext from '../../context/alertas/alertaContext';
-
+import AuthContext from '../../context/autenticacion/authContext';
 //Assets
 import People from '../../img/people_search.png';
 
@@ -11,7 +11,9 @@ const Registro = () => {
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
 
-
+    //Extraer los valores del context
+    const authContext = useContext(AuthContext);
+    const{registrarUsuario} = authContext;
     
     //State para registrase
 
@@ -80,6 +82,28 @@ const Registro = () => {
 
         //Pasarlo a la accion
 
+        const nombreS = nombre.toString();
+        const apellidoS = apellido.toString();
+        const emailS = email.toString();
+        const passwordS = password.toString();
+        const paisS = pais.toString();
+        const ciudadS = ciudad.toString();
+        const telS = tel.toString();
+        const dniS = dni.toString();
+        const ideS = ide.toString();
+        
+
+        registrarUsuario({
+            nombreS,
+            apellidoS,
+            emailS,
+            passwordS,
+            paisS,
+            ciudadS,
+            telS,
+            dniS,
+            ideS
+        });
         
 
 
@@ -176,8 +200,8 @@ const Registro = () => {
                                         className="input-style"
                                         id="pais"
                                         name="pais"
-                                        onChange={onChange}
-                                        value={pais}>
+                                        value={pais}
+                                        onChange={onChange}>
                                         <option>--Seleccione un pais--</option>
                                         <option value="Colombia">Colombia</option>
                                     </select>
@@ -189,8 +213,8 @@ const Registro = () => {
                                         className="input-style"
                                         id="ciudad"
                                         name="ciudad"
-                                        onChange={onChange}
-                                        value={ciudad}>
+                                        value={ciudad}
+                                        onChange={onChange}>
                                         <option>--Seleccione una ciudad--</option>
                                         <option value="Neiva">Neiva</option>
                                     </select>
@@ -205,8 +229,8 @@ const Registro = () => {
                                         className="input-style"
                                         id="tel"
                                         name="tel"
-                                        onChange={onChange}
                                         value={tel}
+                                        onChange={onChange}
                                         required/>
                                 </div>
 
@@ -216,8 +240,8 @@ const Registro = () => {
                                         className="input-style"
                                         id="dni"
                                         name="dni"
-                                        onChange={onChange}
-                                        value={dni}>
+                                        value={dni}
+                                        onChange={onChange}>
                                         <option>--Seleccione un dni--</option>
                                         <option value="CC">CC - Cédula de Ciudadanía</option>
                                         <option value="TI">TI - Tarjeta de identidad</option>
@@ -231,8 +255,8 @@ const Registro = () => {
                                         className="input-style"
                                         id="ide"
                                         name="ide"
-                                        onChange={onChange}
                                         value={ide}
+                                        onChange={onChange}
                                         required/>
                                 </div>
                             </div>

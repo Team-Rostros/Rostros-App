@@ -18,18 +18,18 @@ const Index = () => {
         <>
             <Nav/>
 
-            <section class="banner__index">
-                <div class="negro"></div>
-                <div class="contenedor container--1200">
-                    <h3 class="titulo__banner">Nunca paramos de preocuparnos por ti</h3>
-                    <p class="parrafo__banner">Somos una organización benéfica, que ayuda a las
+            <section className="banner__index">
+                <div className="negro"></div>
+                <div className="contenedor container--1200">
+                    <h3 className="titulo__banner">Nunca paramos de preocuparnos por ti</h3>
+                    <p className="parrafo__banner">Somos una organización benéfica, que ayuda a las
                         personas afectadas por la desaparición de un ser
                         querido.
                     </p>
                 </div>
             </section>
 
-            <section id="characters" class="caracteristicas">
+            <section id="characters" className="caracteristicas">
                 <div className="contenedor container--1200">
                     <h2 className="titulo__index">Caracteristicas</h2>
 
