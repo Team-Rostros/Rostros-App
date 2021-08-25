@@ -1,14 +1,30 @@
-import React, {Fragment, useState, useContext} from 'react';
+import React, {Fragment, useState, useContext, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContext';
+import AuthContext from '../../context/autenticacion/authContext';
 //Assets
 import People from '../../img/people_search.png';
 
-const Login = () => {
+const Login = (props) => {
 
     //Extraer los valores del context
     const alertaContext = useContext(AlertaContext);
     const {alerta, mostrarAlerta} = alertaContext;
+
+    //Extraer los valores del context
+    const authContext = useContext(AuthContext);
+    const{mensaje, autenticado, iniciarSesion} = authContext;
+
+    //En caso de que el password o usuario no exista
+    useEffect(()=>{
+        if(autenticado){
+             props.history.push('/mis-publicaciones');
+        }
+
+        if(mensaje){
+            mostrarAlerta(mensaje.msg, mensaje.categoria);
+        }
+    }, [mensaje, autenticado, props.history]);
 
     //State para iniciar sesión
 
@@ -26,7 +42,7 @@ const Login = () => {
     const onChange = (e)=>{
         guardarUsuario({
             ...usuario,
-            [e.target.name]:[e.target.value]
+            [e.target.name]:e.target.value
         })
     }
 
@@ -43,7 +59,8 @@ const Login = () => {
         }
 
         //Pasarlo a la accion
-
+        console.log(password);
+        iniciarSesion({email, password});
 
     }
     return (
