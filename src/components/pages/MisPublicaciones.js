@@ -19,11 +19,11 @@ const Mispublicaciones = () => {
 
     //Extraer la informacion de autenticacion
     const authContext = useContext(AuthContext);
-    const {usuarioAutenticado} = authContext;
+    const {usuario, usuarioAutenticado} = authContext;
 
     useEffect(()=>{
         usuarioAutenticado();
-    }, [])
+    }, []);
     return (
         <Fragment>
             <div className="grid__desaparecido">
@@ -70,7 +70,7 @@ const Mispublicaciones = () => {
                 <div className="grid__main">
                     <nav className="flexbox">
                         <a className="label__nav" href="#"><img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={Bell} alt="Icono Campana" /></a>
-                        <a className="label__nav" href="#">Hola Diego</a>
+                        {usuario ?<a className="label__nav" >{usuario.nombre}</a> : null}
                         <a className="label__nav" href="#">Mis publicaciones</a>
                         <a className="label__nav" href="#">Salir<img className="flexbox__navimagen flexbox__navimagen--sign" src={SignOut} alt="Icono Sign Out" /></a>
                         
