@@ -22,6 +22,8 @@ import MisPublicaciones from './components/pages/MisPublicaciones';
 import AlertaState from './context/alertas/alertaState';
 import AuthState from './context/autenticacion/authState';
 import tokenAuth from './config/tokenAuth';
+
+import RutaPrivada from './components/rutas/RutaPrivada';
 //Revisar si hay un token disponible
 const token = localStorage.getItem('token');
 if(token){
@@ -50,7 +52,7 @@ function App() {
 
               <Route exact path="/centro-ayuda" component={CentroAyuda} />
               <Route exact path="/maintenance" component={Maintenance} />
-              <Route exact path="/mis-publicaciones" component={MisPublicaciones} />
+              <RutaPrivada exact path="/mis-publicaciones" component={MisPublicaciones} />
               <Route path="*" component={Error404} />
             </Switch>
           </Router>
