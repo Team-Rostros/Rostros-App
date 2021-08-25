@@ -1,4 +1,6 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useContext, useEffect} from 'react';
+
+import AuthContext from '../../context/autenticacion/authContext';
 
 //Assets
 import LogoAzul from '../../img/logoazulv.png';
@@ -14,6 +16,14 @@ import Filter from '../../img/filter.png';
 import Male from '../../img/male.jpg';
 
 const Mispublicaciones = () => {
+
+    //Extraer la informacion de autenticacion
+    const authContext = useContext(AuthContext);
+    const {usuarioAutenticado} = authContext;
+
+    useEffect(()=>{
+        usuarioAutenticado();
+    }, [])
     return (
         <Fragment>
             <div className="grid__desaparecido">

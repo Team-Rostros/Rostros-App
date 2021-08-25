@@ -21,6 +21,12 @@ import MisPublicaciones from './components/pages/MisPublicaciones';
 
 import AlertaState from './context/alertas/alertaState';
 import AuthState from './context/autenticacion/authState';
+import tokenAuth from './config/tokenAuth';
+//Revisar si hay un token disponible
+const token = localStorage.getItem('token');
+if(token){
+  tokenAuth(token);
+}
 
 function App() {
 
