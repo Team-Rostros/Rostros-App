@@ -19,7 +19,7 @@ const Mispublicaciones = () => {
 
     //Extraer la informacion de autenticacion
     const authContext = useContext(AuthContext);
-    const {usuario, usuarioAutenticado} = authContext;
+    const {usuario, usuarioAutenticado, cerrarSesion} = authContext;
 
     useEffect(()=>{
         usuarioAutenticado();
@@ -72,8 +72,10 @@ const Mispublicaciones = () => {
                         <a className="label__nav" href="#"><img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={Bell} alt="Icono Campana" /></a>
                         {usuario ?<a className="label__nav" >{usuario.nombre}</a> : null}
                         <a className="label__nav" href="#">Mis publicaciones</a>
-                        <a className="label__nav" href="#">Salir<img className="flexbox__navimagen flexbox__navimagen--sign" src={SignOut} alt="Icono Sign Out" /></a>
-                        
+                        <button 
+                            className="label__nav"
+                            onClick={() => cerrarSesion()}
+                        >Salir</button>                        
                     </nav>
 
                     <div className="search">
