@@ -1,4 +1,4 @@
-import React, {Fragment, useContext, useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 
 import AuthContext from '../../context/autenticacion/authContext';
 
@@ -10,7 +10,7 @@ import UserFriends from '../../img/userfriends.png';
 import Coins from '../../img/coinz.png';
 import Question from '../../img/question.png';
 import Bell from '../../img/bell.png';
-import SignOut from '../../img/signout.png';
+//import SignOut from '../../img/signout.png';
 import Search from '../../img/search.png';
 import Filter from '../../img/filter.png';
 import Male from '../../img/male.jpg';
@@ -25,7 +25,7 @@ const Mispublicaciones = () => {
         usuarioAutenticado();
     }, []);
     return (
-        <Fragment>
+        <>
             <div className="grid__desaparecido">
                 <aside className="grid__aside">
 
@@ -69,9 +69,9 @@ const Mispublicaciones = () => {
 
                 <div className="grid__main">
                     <nav className="flexbox">
-                        <a className="label__nav" href="#"><img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={Bell} alt="Icono Campana" /></a>
-                        {usuario ?<a className="label__nav" >{usuario.nombre}</a> : null}
-                        <a className="label__nav" href="#">Mis publicaciones</a>
+                        <a className="label__nav" href="#/"><img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={Bell} alt="Icono Campana" /></a>
+                        {usuario ?<a href="#/" className="label__nav" >{usuario.nombre}</a> : null}
+                        <a className="label__nav" href="#/">Mis publicaciones</a>
                         <button 
                             className="label__nav"
                             onClick={() => cerrarSesion()}
@@ -80,12 +80,16 @@ const Mispublicaciones = () => {
 
                     <div className="search">
                         <input className="input__search" type="search" placeholder="Consulte por el nombre" />
-                        <button className="btn__search"><img className="search__img" src={Search} /></button>                
+                        <button className="btn__search">
+                            <img className="search__img" src={Search} alt="Buscar" />
+                        </button>                
                     </div>
 
                     <div className="filter">
                         <div className="filter__checks">
-                            <button><img className="filter__img" src={Filter} /></button>
+                            <button>
+                                <img className="filter__img" src={Filter} alt="Filtrar"/>
+                            </button>
                             <input type="checkbox" name="asc" id="asc" />Más reciente
                             <input type="checkbox" name="des" id="desc" />Más antigua
                         </div>
@@ -119,7 +123,7 @@ const Mispublicaciones = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <a className="subir__btn centrar-texto bold">¿La has visto?</a>
+                                <a href="#/" className="subir__btn centrar-texto bold">¿La has visto?</a>
                             </div>
             
                             <div className="cards__desaparecidos">
@@ -146,7 +150,7 @@ const Mispublicaciones = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <a className="subir__btn centrar-texto bold">¿La has visto?</a>
+                                <a href="#/" className="subir__btn centrar-texto bold">¿La has visto?</a>
                             </div>
             
                             <div className="cards__desaparecidos">
@@ -173,7 +177,7 @@ const Mispublicaciones = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <a className="subir__btn centrar-texto bold">¿La has visto?</a>
+                                <a href="#/" className="subir__btn centrar-texto bold">¿La has visto?</a>
                             </div>
                         </div>
 
@@ -182,7 +186,7 @@ const Mispublicaciones = () => {
                     </div>
                 </div>
             </div>
-        </Fragment>
+        </>
     );
 }
  

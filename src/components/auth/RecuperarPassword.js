@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // Custom packages
-import { useForm } from '../../hooks/useForm';
+import { useForm } from '../../hooks/useFormValidate';
 import { regExpPassword } from '../../utils/validator';
 
 // Assets

@@ -1,0 +1,26 @@
+[33m0145634[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m Protegiendo el componente mis publicaciones
+[33m710ea83[m Cerrando sesion
+[33m0d47a87[m Mostrando informacion del usuario que ingresa
+[33ma003916[m Autenticado cuando se recarga la app
+[33ma9e2276[m Autenticacion exitosa
+[33ma5ef49b[m Retornando a la validacion original
+[33ma0997f6[m Enviando token por header para autenticar el usuario
+[33m8f35df1[m Creando usuario por Frontend
+[33m3dca91c[m Validacion original - Error 404 Bad Request Front
+[33m38a0381[m Comenzando conexion front-back desde cero
+[33m04fcd75[m En el index.css se centra el texto de los terminos
+[33m142ebef[m Creando el state y el provider auth
+[33mdd3ec69[m Creado AnatomiaDelDesaparecido, ItemDesaparecido, Maintenance, Panel de usuario y Panel de Admisnitrador
+[33m1d7c19f[m Creado Anatomias, CentroAyuda, Donaciones y se modularon componentes del index
+[33ma0c2fbf[m Creados RecuperarPassword, Terminos y ver desaparecidos (pendiente por validar envío formulario)
+[33m56dde5f[m Validacion de campos en Login mediante Regex y custom Hook useForm
+[33m0dd933b[m Se implmento Link, custom hook useForm y validacion con Regexs
+[33mb6c611c[m Login validado
+[33mdc211c2[m Validacion corregida
+[33m5b47e33[m Validacion del formulario
+[33m421d998[m Implementando Recaptcha
+[33ma92a7b5[m Agregando normalize, pasando el template de html a jsx
+[33mc1bc420[m Componentes front listos: login, index, registro (No funcionales)
+[33m6dc0098[m Estructurando el proyecto (routing)
+[33mfaa85bc[m Creacion de la app con react cliente
+[33me84abf3[m Initialize project using Create React App
