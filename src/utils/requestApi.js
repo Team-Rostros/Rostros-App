@@ -4,7 +4,7 @@ export const getOptions = async (pais, query) => {
 
         if (pais !== '') {
 
-                const { data } = await clienteAxios.get(`/ciudad/${pais}/${query === '' ? 'A' : query}`);
+                const { data } = await clienteAxios.get(`/api/ciudad/${pais}/${query === '' ? 'A' : query}`);
                 return data.map(({ _id, nombre }) => ({ value: _id, name: nombre }));
         }
         return [];
@@ -12,6 +12,6 @@ export const getOptions = async (pais, query) => {
 
 export const getPaises = async () => {
 
-        const { data } = await clienteAxios.get(`/pais/list`);
+        const { data } = await clienteAxios.get(`/api/pais/list`);
         return data;
 }
