@@ -42,8 +42,6 @@
     box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.15);
     border-radius: 5px;
     outline: none;
-    font-family: 'Noto Sans', sans-serif;
-    font-size: 14px;
     text-align: left;
     text-overflow: ellipsis;
     line-height: 36px;
