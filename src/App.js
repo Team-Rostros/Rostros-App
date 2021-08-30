@@ -48,7 +48,7 @@ function App() {
               
               <Route exact path="/panel" component={Panel} />
 
-              <Route exact path="/panel-usuario" component={PanelUsuario} />
+              <Route exact path="/crear-desaparecido" component={PanelUsuario} />
 
               <Route exact path="/centro-ayuda" component={CentroAyuda} />
               <Route exact path="/maintenance" component={Maintenance} />
