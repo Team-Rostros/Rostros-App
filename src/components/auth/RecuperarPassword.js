@@ -56,6 +56,19 @@ const RecuperarPassword = () => {
                 <h3 className="centrar-texto">Recuperar Contraseña</h3>
 
                 <div className="input">
+                    <label className="label label--rcontra bold" htmlFor="rcontra">Digite el correo</label>
+                    <input
+                        id="rcontra"
+                        type="password"
+                        name="password"
+                        value={password}
+                        className="input-style input-style--rcontra"
+                        onChange={validateAndShow}
+                    />
+                    {!ePassword && <p className="error">Campo inválido</p>}
+                </div>
+
+                <div className="input">
                     <label className="label label--rcontra bold" htmlFor="rcontra">Digite la nueva contraseña</label>
                     <input
                         id="rcontra"
