@@ -56,7 +56,7 @@ const RecuperarPassword = () => {
                 <h3 className="centrar-texto">Recuperar Contraseña</h3>
 
                 <div className="input">
-                    <label className="label label--rcontra bold" htmlFor="rcontra">Digite la nueva contraseña</label>
+                    <label className="label label--rcontra bold" htmlFor="rcontra">Digite la nueva contraseñaa</label>
                     <input
                         id="rcontra"
                         type="password"
