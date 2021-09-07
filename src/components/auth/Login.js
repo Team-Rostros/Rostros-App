@@ -108,7 +108,9 @@ const Login = (props) => {
 
 
                             
-                            <a className="enlace" href="rpassword.html">¿Olvidaste tu contraseña?</a>
+                            <Link to={'/rpassword'} className="boton boton--secundario centrar-bloque">
+                                ¿Olvidates tu contraseña?
+                            </Link>
                             <input 
                                 type="submit"
                                 value="Iniciar Sesión"

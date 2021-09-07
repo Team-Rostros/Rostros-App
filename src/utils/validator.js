@@ -8,7 +8,6 @@ export const regExpDni = /^[a-zA-Z]{2}$/;
 
 
 export const validateField = (value, regExp)=>{
-
     if(regExp.test(value)) return true;
     return false;
 }
