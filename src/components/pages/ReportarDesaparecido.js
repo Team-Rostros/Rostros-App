@@ -49,6 +49,7 @@ const ReportarDesaparecido = () => {
         cdientes: '',
 
         // Campos de información relevante
+        descripcion:'',
     });
 
     const {
@@ -93,17 +94,26 @@ const ReportarDesaparecido = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        const data = await reportarDesaparecido(values, file.current ? file.current.files[0] : 0);
-        if (data) {
-            alert("Se creó exitosamente");
-            cleanOBjects();
-        }
-        else {
-            alert("No se ha reportado al desaparecido que intentas registrar");
-        }
 
-        setMenu(1);
+        if (file.current.files[0]) {
+
+
+            const data = await reportarDesaparecido(values, file.current ? file.current.files[0] : 0);
+            if (data) {
+                alert("Se creó exitosamente");
+                cleanOBjects();
+            }
+            else {
+                alert("No se ha reportado al desaparecido que intentas registrar");
+            }
+
+            setMenu(1);
+
+        } else {
+            alert("Es requerido seleccionar una imagen");
+            setMenu(1);
+            return;
+        }
     }
 
     return (

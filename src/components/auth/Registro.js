@@ -20,7 +20,7 @@ const Registro = (props) => {
 
     useEffect(()=>{
         if(autenticado){
-            props.history.push('/mis-publicaciones');
+            props.history.push('/panel-usuario');
         }
 
         if(mensaje){
@@ -83,7 +83,7 @@ const Registro = (props) => {
 
 
         //Revisar que los dos passwords sean iguales
-        if(password.[0] !== rpassword.[0]){
+        if(password !== rpassword){
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
