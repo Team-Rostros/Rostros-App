@@ -47,6 +47,7 @@ function App() {
               <Route exact path="/anatomias" component={Anatomias} />
               
               <Route exact path="/panel" component={Panel} />
+              <Route exact path="/panel-usuario" component={PanelUsuario} />
 
               <Route exact path="/crear-desaparecido" component={PanelUsuario} />
 

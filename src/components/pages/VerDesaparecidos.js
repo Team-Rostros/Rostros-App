@@ -22,6 +22,7 @@ const VerDesaparecidos = ({ setMenu }) => {
             <div className="cards__contenedor">
                 {desaparecidos.map(d => (<CardDesaparecidos
                     key={d._id}
+                    id={d._id}
                     nombre={`${d.nombre1} ${d.nombre2} ${d.apellido1} ${d.apellido2}`}
                     pais={d.pais}
                     fechad={extraerFecha(d.fechad)}

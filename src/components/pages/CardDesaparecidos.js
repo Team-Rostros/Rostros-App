@@ -3,14 +3,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // Assets
-import male from '../../img/male.jpg';
 
-const CardDesaparecidos = ({ nombre, pais, fechad, departamento, ciudad, genero, edad}) => {
+const CardDesaparecidos = ({ id,nombre, pais, fechad, departamento, ciudad, genero, edad}) => {
     return (
         <div className="cards__desaparecidos">
             <div className="card__des">
                 <div className="card__imagen centrar-texto">
-                    <img className="card__imgdes" src={male} alt="Foto perfil" />
+                    <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${id}`} alt="Foto perfil" />
                 </div>
 
                 <div className="card_descrip justify">
