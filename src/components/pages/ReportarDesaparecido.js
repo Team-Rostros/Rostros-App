@@ -110,7 +110,7 @@ const ReportarDesaparecido = () => {
             setMenu(1);
 
         } else {
-            alert("Es requerido seleccionar una imagen");
+            alert("Es requerido seleccionar una imagen. Todos los campos son requeridos");
             setMenu(1);
             return;
         }

@@ -31,7 +31,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={craneo}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione el craneo--</option>
                         <option value="Dolicocefalico" >Dolicocefalico</option>
@@ -50,7 +50,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={rostro}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione el rostro--</option>
                         <option value="Redondo">Redondo</option>
@@ -74,7 +74,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={cuello}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione el cuello--</option>
                         <option value="Largo">Largo</option>
@@ -93,7 +93,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={ojos}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione los ojos--</option>
                         <option value="Almendrados" >Almendrados</option>
@@ -117,7 +117,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={cuerpo}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione el cuerpo--</option>
                         <option value="Ectomorfo" >Ectomorfo</option>
@@ -135,7 +135,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={labios}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione los labios--</option>
                         <option value="Delgados" >Delgados</option>
@@ -162,7 +162,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={oreja}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione las orejas--</option>
                         <option value="Largas" >Largas</option>
@@ -187,7 +187,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={nariz}
                         className="input-style"
                         onChange={handleInputChange}
-                        required
+
                     >
                         <option>--Seleccione la nariz--</option>
                         <option value="Aguileña">Aguileña</option>
