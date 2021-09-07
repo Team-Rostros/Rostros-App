@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // Assets
 import male from '../../img/male.jpg';
 
-const CardDesaparecidos = () => {
+const CardDesaparecidos = ({ nombre, pais, fechad, departamento, ciudad, genero, edad}) => {
     return (
         <div className="cards__desaparecidos">
             <div className="card__des">
@@ -14,19 +14,19 @@ const CardDesaparecidos = () => {
                 </div>
 
                 <div className="card_descrip justify">
-                    <span className="bold azul">Nombre Completo: </span><p className="ib no-margin">Jose Arturo</p>
+                    <span className="bold azul">Nombre Completo: </span><p className="ib no-margin">{nombre}</p>
                     <div className="card__group">
                         <div className="group">
-                            <span className="bold azul">Perdida en: </span><p className="ib no-margin">Colombia</p>
-                            <span className="bold azul">Perdida desde: </span><p className="ib no-margin">29/01/1999</p>
+                            <span className="bold azul">Perdida en: </span><p className="ib no-margin">{pais}</p>
+                            <span className="bold azul">Perdida desde: </span><p className="ib no-margin">{fechad}</p>
                         </div>
                         <div className="group">
-                            <span className="bold azul">Departamento: </span><p className="ib no-margin">Huila</p>
-                            <span className="bold azul">Ciudad: </span><p className="ib no-margin">Neiva</p>
+                            <span className="bold azul">Departamento: </span><p className="ib no-margin">{departamento}</p>
+                            <span className="bold azul">Ciudad: </span><p className="ib no-margin">{ciudad}</p>
                         </div>
                         <div className="group">
-                            <span className="bold azul">Genero: </span><p className="ib no-margin">Mujer</p>
-                            <span className="bold azul">Edad: </span><p className="ib no-margin">19</p>
+                            <span className="bold azul">Genero: </span><p className="ib no-margin">{genero}</p>
+                            <span className="bold azul">Edad: </span><p className="ib no-margin">{edad}</p>
                         </div>
                     </div>
                 </div>

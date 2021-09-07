@@ -37,7 +37,12 @@ body{
   font-size: 1.6rem;
   line-height: 2;
 }
-
+.d-bloc{
+  display: block;
+}
+.d-none{
+  display: none;
+}
 input:focus{
   border: 2px solid var(--colorPrimarioOscuro);
   outline: 0 none;

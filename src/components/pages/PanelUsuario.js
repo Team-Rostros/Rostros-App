@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 // Custom packages
 import VerDesaparecidos from './VerDesaparecidos';
 
+import ItemDesaparecido from './ItemDesaparecido';
+import ReportarDesaparecido from './ReportarDesaparecido';
+
 // Assets
 import logoazulv from '../../img/logoazulv.png';
 import home from '../../img/home.png';
@@ -17,7 +20,6 @@ import signout from '../../img/signout.png';
 import search from '../../img/search.png';
 import filter from '../../img/filter.png';
 import coinz from '../../img/coinz.png';
-import ItemDesaparecido from './ItemDesaparecido';
 
 const PanelUsuario = () => {
 
@@ -96,7 +98,11 @@ const PanelUsuario = () => {
 
                 {/** Secciones */}
 
-                {menu === 2
+                {menu === 1
+                ?
+                <ReportarDesaparecido />
+                :
+                menu === 2
                 ?
                 <VerDesaparecidos
                     setMenu={setMenu}
