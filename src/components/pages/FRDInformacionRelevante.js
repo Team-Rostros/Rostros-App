@@ -27,7 +27,7 @@ const FRDInformacionRelevante = ({
                             desaparición: Talla, marca, estado de las prendas, descripción general de las prendas
                             y pertenencias."
                     onChange={handleInputChange}
-                    require
+                    required
                 ></textarea>
 
                 <input

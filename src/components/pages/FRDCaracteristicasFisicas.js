@@ -33,7 +33,7 @@ const FRDCaracteristicasFisicas = ({
                         value={piel}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione la piel--</option>
                         <option value="Muy clara" >Muy clara</option>
@@ -53,7 +53,7 @@ const FRDCaracteristicasFisicas = ({
                         value={cpiel}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el color de piel--</option>
                         <option value="Blanca" >Blanca</option>
@@ -86,7 +86,7 @@ const FRDCaracteristicasFisicas = ({
                         value={pigm}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione la pigmentacion--</option>
                         <option value="Pecas" >Pecas</option>
@@ -106,7 +106,7 @@ const FRDCaracteristicasFisicas = ({
                         value={peso}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     />
                 </div>
             </div>
@@ -121,7 +121,7 @@ const FRDCaracteristicasFisicas = ({
                         value={cabello}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el cabello--</option>
                         <option value="Lacio" >Lacio</option>
@@ -140,7 +140,7 @@ const FRDCaracteristicasFisicas = ({
                         value={ccabello}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el color del cabello--</option>
                         <option value="Negro" >Negro</option>
@@ -163,7 +163,7 @@ const FRDCaracteristicasFisicas = ({
                         value={cojos}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el color de ojos--</option>
                         <option value="Cafés muy oscuros" >Cafés muy oscuros</option>
@@ -186,7 +186,7 @@ const FRDCaracteristicasFisicas = ({
                         value={clabios}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el color de labios--</option>
                         <option value="Rosados claros" >Rosados claros</option>
@@ -209,7 +209,7 @@ const FRDCaracteristicasFisicas = ({
                         value={estatura}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     />
                 </div>
 
@@ -222,7 +222,7 @@ const FRDCaracteristicasFisicas = ({
                         value={cdientes}
                         className="input-style"
                         onChange={handleInputChange}
-                        require
+                        required
                     >
                         <option>--Seleccione el color de dientes--</option>
                         <option value="Blancos">Blancos</option>
