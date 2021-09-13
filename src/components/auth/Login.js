@@ -18,7 +18,7 @@ const Login = (props) => {
     //En caso de que el password o usuario no exista
     useEffect(()=>{
         if(autenticado){
-             props.history.push('/mis-publicaciones');
+             props.history.push('/panel-usuario');
         }
 
         if(mensaje){
@@ -107,8 +107,10 @@ const Login = (props) => {
                             </div>
 
 
+                            <Link to={'/rpassword'} className="enlace">
+                                ¿Olvidaste tu contraseña?
+                            </Link>
                             
-                            <a className="enlace" href="rpassword.html">¿Olvidaste tu contraseña?</a>
                             <input 
                                 type="submit"
                                 value="Iniciar Sesión"
