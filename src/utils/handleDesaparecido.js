@@ -34,7 +34,8 @@ export const reportarDesaparecido = async (desaparecido, photo) => {
         clabios,
         estatura,
         cdientes,
-        descripcion
+        descripcion,
+        creador,
     } = desaparecido;
 
     data.append('nombre1', nombre1);
@@ -67,11 +68,11 @@ export const reportarDesaparecido = async (desaparecido, photo) => {
     data.append('estatura', estatura);
     data.append('cdientes', cdientes);
     data.append('descripcion', descripcion);
-
     data.append('photo', photo);
+    data.append('creador', creador);
 
     const response = await clienteAxios.post('/api/desaparecido/create', data);
-    console.log(response.data.error);
+
     if (response.data.error) return false;
     return true;
 }

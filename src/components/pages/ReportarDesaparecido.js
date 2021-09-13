@@ -1,5 +1,5 @@
 // Predefined packages
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import FRDCaracteristicaMorfologicas from './FRDCaracteristicaMorfologicas';
 import FRDCaracteristicasFisicas from './FRDCaracteristicasFisicas';
 
@@ -8,9 +8,14 @@ import FRDInformacionPersonal from './FRDInformacionPersonal';
 import FRDInformacionRelevante from './FRDInformacionRelevante';
 import { reportarDesaparecido } from '../../utils/handleDesaparecido';
 import { useForm } from '../../hooks/useForm';
+import AuthContext from '../../context/autenticacion/authContext';
 
 
 const ReportarDesaparecido = () => {
+
+    //Extraer los valores del context
+    const authContext = useContext(AuthContext);
+    const{ usuario, usuarioAutenticado } = authContext;
 
     const [values, handleInputChange, cleanOBjects] = useForm({
         // Campos de información personal
@@ -96,9 +101,10 @@ const ReportarDesaparecido = () => {
         e.preventDefault();
 
         if (file.current.files[0]) {
+            
+            await usuarioAutenticado();
 
-
-            const data = await reportarDesaparecido(values, file.current ? file.current.files[0] : 0);
+            const data = await reportarDesaparecido({...values, creador: usuario._id}, file.current ? file.current.files[0] : 0);
             if (data) {
                 alert("Se creó exitosamente");
                 cleanOBjects();
