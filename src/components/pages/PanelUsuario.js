@@ -1,6 +1,9 @@
 // Predefined packages
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import AuthContext from '../../context/autenticacion/authContext';
+
 
 // Custom packages
 import VerDesaparecidos from './VerDesaparecidos';
@@ -24,6 +27,14 @@ import coinz from '../../img/coinz.png';
 const PanelUsuario = () => {
 
     const [menu, setMenu] = useState(1);
+
+    //Extraer la informacion de autenticacion
+    const authContext = useContext(AuthContext);
+    const {usuario, usuarioAutenticado, cerrarSesion} = authContext;
+
+    useEffect(()=>{
+        usuarioAutenticado();
+    }, []);
 
     return (
         <div className="grid__desaparecido">
