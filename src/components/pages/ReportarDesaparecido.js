@@ -10,6 +10,11 @@ import { reportarDesaparecido } from '../../utils/handleDesaparecido';
 import { useForm } from '../../hooks/useForm';
 import AuthContext from '../../context/autenticacion/authContext';
 
+//Sweet Alert
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
+
 
 const ReportarDesaparecido = () => {
 
@@ -97,6 +102,16 @@ const ReportarDesaparecido = () => {
 
     const [menu, setMenu] = useState(1);
 
+    const sweetAlert = ()=>{
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Todos los campos son requeridos incluida la imagen'
+          })
+    }
+
+    
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -116,7 +131,7 @@ const ReportarDesaparecido = () => {
             setMenu(1);
 
         } else {
-            alert("Es requerido seleccionar una imagen. Todos los campos son requeridos");
+            sweetAlert();
             setMenu(1);
             return;
         }
