@@ -187,3 +187,17 @@ export const marcarEncontrado = async (id) => {
     if (response.data.error) return false;
     return true; 
 }
+
+export const listarComentarios = async (id) =>{
+
+    const response = await clienteAxios.get('/api/comentarios/list/'+id);
+    return response.data;
+}
+
+export const crearComentarios = async (comentario)=>{
+    console.log(comentario)
+    const response = await (await clienteAxios.post('/api/comentarios/create', comentario));
+
+    if (response.data.error) return false;
+    return true;
+}

@@ -86,7 +86,7 @@ const ItemDesaparecido = ({desaparecido, setMenuGlobal}) => {
 
             <a href="#/" onClick={actualizarEstado} className="subir__btn centrar-texto bold subir__btn--verde">Marcar como encontrada</a>
 
-            <SeccionComentarios/>
+            <SeccionComentarios desaparecido={d}/>
 
         </div>
     );

@@ -16,3 +16,8 @@ export const extraerFecha = (fecha) => {
     const date = new Date(fecha);
     return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+1}`;
 }
+
+export const extraerTiempo = (fecha) => {
+    const date = new Date(fecha);
+    return `${date.getTime()-Date.now()}`;
+}

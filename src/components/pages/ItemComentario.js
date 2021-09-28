@@ -3,16 +3,20 @@ import React from 'react';
 
 // Asssets
 
-const ItemComentario = ({urlImage, alt, comment, time}) => {
+import female from '../../img/female.png';
+import { extraerFecha } from '../../utils/convertidor';
+
+const ItemComentario = ({comentario}) => {
+
     return (
         <div className="grid grid__comentario">
             <div className="comentario__imagen">
-                <img className="comentario__img" src={urlImage} alt={alt} />
+                <img className="comentario__img" src={female} alt="Avatar del creador del comentario" />
             </div>
 
             <div className="comentario__texto">
-                <p>{comment}</p>
-                <span className="italic">{time}</span>
+                <p>{comentario.descripcion}</p>
+                <span className="italic">creado en {extraerFecha(comentario.createdAt)}</span>
             </div>
         </div>
     );
