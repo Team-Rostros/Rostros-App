@@ -72,6 +72,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                 id="asc"
                                 checked={selected === 'asc'}
                                 onClick={() => selectRadio('asc')}
+                                onChange={()=>{}}
                             />
                             <label htmlFor="asc"> Más reciente</label>
                         </div>
@@ -82,6 +83,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                 id="desc"
                                 checked={selected === 'desc'}
                                 onClick={() => selectRadio('desc')}
+                                onChange={()=>{}}
                             />
                             <label htmlFor="desc"> Más antigua</label>
                         </div>

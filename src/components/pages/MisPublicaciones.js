@@ -22,7 +22,7 @@ const MisPublicaciones = ({ setMenu, setDesaparecido, usuario }) => {
     }
 
     useEffect(() => {
-        loadDesaparecidos(usuario? usuario._id:0);
+        usuario && loadDesaparecidos(usuario._id);
     }, [usuario]);
 
     return (

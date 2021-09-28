@@ -2,7 +2,6 @@ import React from 'react';
 import { extraerFecha } from '../../utils/convertidor';
 
 // Assets
-import male from '../../img/male.jpg';
 
 const DInformacionPersonal = ({
     id,
