@@ -62,7 +62,7 @@ const PanelUsuario = () => {
 
         setTimeout(()=>{
             cerrarSesion();
-        },3000)
+        },2000)
 
         
     }
