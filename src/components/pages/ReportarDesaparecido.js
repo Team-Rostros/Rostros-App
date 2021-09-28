@@ -1,66 +1,34 @@
 // Predefined packages
 import React, { useState, useRef, useContext } from 'react';
-import FRDCaracteristicaMorfologicas from './FRDCaracteristicaMorfologicas';
-import FRDCaracteristicasFisicas from './FRDCaracteristicasFisicas';
 
 // Custom packages
+import FRDCaracteristicaMorfologicas from './FRDCaracteristicaMorfologicas';
+import FRDCaracteristicasFisicas from './FRDCaracteristicasFisicas';
 import FRDInformacionPersonal from './FRDInformacionPersonal';
 import FRDInformacionRelevante from './FRDInformacionRelevante';
-import { reportarDesaparecido } from '../../utils/handleDesaparecido';
+import { actualizarDesaparecido, reportarDesaparecido } from '../../utils/handleDesaparecido';
 import { useForm } from '../../hooks/useForm';
 import AuthContext from '../../context/autenticacion/authContext';
 
 //Sweet Alert
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import { initialDataDesaparecido } from '../../fixtures/formData';
+import { extraerFecha } from '../../utils/convertidor';
 
 
 
-const ReportarDesaparecido = () => {
+const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
 
     //Extraer los valores del context
     const authContext = useContext(AuthContext);
-    const{ usuario, usuarioAutenticado } = authContext;
+    const { usuario, usuarioAutenticado } = authContext;
 
-    const [values, handleInputChange, cleanOBjects] = useForm({
-        // Campos de información personal
-        nombre1: '',
-        apellido1: '',
-        nombre2: '',
-        apellido2: '',
-        genero: '',
-        fechaNacimiento: '',
-        pais: '',
-        departamento: '',
-        ciudad: '',
-        zipcode: '',
-        fechad: '',
-
-        // Campos de caracteríticas morfológicas
-        craneo: '',
-        rostro: '',
-        cuello: '',
-        ojos: '',
-        cuerpo: '',
-        labios: '',
-        oreja: '',
-        nariz: '',
-
-        // Campos de caracteríticas físicas
-        piel: '',
-        cpiel: '',
-        pigm: '',
-        peso: '',
-        cabello: '',
-        ccabello: '',
-        cojos: '',
-        clabios: '',
-        estatura: '',
-        cdientes: '',
-
-        // Campos de información relevante
-        descripcion:'',
-    });
+    const [values, handleInputChange, cleanOBjects] = useForm(desaparecido
+        ?
+        {...desaparecido, fechad: extraerFecha(desaparecido.fechad)}
+        :
+        initialDataDesaparecido);
 
     const {
         nombre1,
@@ -102,38 +70,53 @@ const ReportarDesaparecido = () => {
 
     const [menu, setMenu] = useState(1);
 
-    const sweetAlert = ()=>{
+    const sweetAlert = () => {
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Todos los campos son requeridos incluida la imagen'
-          })
+        })
     }
 
-    
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if (file.current.files[0]) {
-            
-            await usuarioAutenticado();
+        await usuarioAutenticado();
 
-            const data = await reportarDesaparecido({...values, creador: usuario._id}, file.current ? file.current.files[0] : 0);
+        if (desaparecido) {
+            const data = await actualizarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
             if (data) {
-                alert("Se creó exitosamente");
-                cleanOBjects();
+                alert("Se Actualizó el registro");
+                setMenuGlobal(0);
             }
             else {
-                alert("No se ha reportado al desaparecido que intentas registrar");
+                alert("Error al intentar actualizar");
             }
 
             setMenu(1);
-
         } else {
-            sweetAlert();
-            setMenu(1);
-            return;
+
+            if (file.current.files[0]) {
+
+                const data = await reportarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
+
+                if (data) {
+                    alert("Se creó exitosamente");
+                    cleanOBjects();
+                }
+                else {
+                    alert("No se ha reportado al desaparecido que intentas registrar");
+                }
+
+                setMenu(1);
+
+            } else {
+                sweetAlert();
+                setMenu(1);
+                return;
+            }
         }
     }
 
@@ -151,6 +134,7 @@ const ReportarDesaparecido = () => {
 
             <form className="grid__form container--80rem" onSubmit={handleSubmit}>
                 <FRDInformacionPersonal
+                    desaparecido={desaparecido}
                     file={file}
                     nombre1={nombre1}
                     apellido1={apellido1}

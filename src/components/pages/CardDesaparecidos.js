@@ -4,12 +4,19 @@ import { Link } from 'react-router-dom';
 
 // Assets
 
-const CardDesaparecidos = ({ id,nombre, pais, fechad, departamento, ciudad, genero, edad}) => {
+const CardDesaparecidos = ({desaparecido, id,nombre, pais, fechad, departamento, ciudad, genero, edad, setDesaparecido, setMenu, show=4}) => {
     return (
         <div className="cards__desaparecidos">
             <div className="card__des">
                 <div className="card__imagen centrar-texto">
                     <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${id}`} alt="Foto perfil" />
+                    <a href="#/"
+                        onClick={()=>{setDesaparecido(desaparecido);setMenu(show);}}
+                        style={{fontSize:'1.3rem', textDecoration:'underline'}}
+                        className="bold azul"
+                    >
+                        {show===4?'Editar': 'Ver detalle'}
+                    </a>
                 </div>
 
                 <div className="card_descrip justify">

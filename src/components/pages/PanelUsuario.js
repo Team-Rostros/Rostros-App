@@ -21,22 +21,31 @@ import Bell from '../../img/bell.png';
 import language from '../../img/language.png';
 import signout from '../../img/signout.png';
 import coinz from '../../img/coinz.png';
+import misPublicaciones from '../../img/mis-publicaciones.png';
 
 //Sweet Alert
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
+import ActualizarDesaparecido from './ActualizarDesaparecido';
+import MisPublicaciones from './MisPublicaciones';
 
 const PanelUsuario = () => {
-
-    const [menu, setMenu] = useState(1);
 
     //Extraer la informacion de autenticacion
     const authContext = useContext(AuthContext);
     const {usuario, usuarioAutenticado, cerrarSesion} = authContext;
 
+    const [desaparecido, setDesaparecido] = useState(0);
+
+    const loadUsuario =async()=>{
+        await usuarioAutenticado();
+    }
+
     useEffect(()=>{
-        usuarioAutenticado();
+        loadUsuario();
     }, []);
+    
+    const [menu, setMenu] = useState(0);
 
     const sweetAlert = ()=>{
         let timerInterval
@@ -70,6 +79,13 @@ const PanelUsuario = () => {
                     <Link to="/">
                         <img className="aside__imagen" src={home} alt="Icono Home" />
                         <h3 className="titulo__aside centrar-texto">Inicio</h3>
+                    </Link>
+                </div>
+
+                <div className="item__aside">
+                    <Link to="#/" onClick={()=>setMenu(0)}>
+                        <img className="aside__imagen" src={misPublicaciones} alt="Icono User" />
+                        <h3 className="titulo__aside centrar-texto">Mis Publicaciones</h3>
                     </Link>
                 </div>
 
@@ -120,7 +136,15 @@ const PanelUsuario = () => {
 
                 {/** Secciones */}
 
-                {menu === 1
+                {menu === 0
+                ?
+                <MisPublicaciones
+                    setMenu={setMenu}
+                    setDesaparecido={setDesaparecido}
+                    usuario={usuario}
+                />
+                :
+                menu === 1
                 ?
                 <ReportarDesaparecido />
                 :
@@ -128,9 +152,14 @@ const PanelUsuario = () => {
                 ?
                 <VerDesaparecidos
                     setMenu={setMenu}
+                    setDesaparecido={setDesaparecido}
                 />
                 :
-                <ItemDesaparecido/>
+                menu === 4
+                ?
+                <ActualizarDesaparecido desaparecido={desaparecido} setMenuGlobal={setMenu} />
+                :
+                <ItemDesaparecido desaparecido={desaparecido} setMenuGlobal={setMenu}/>
                 }
                 
             </div>

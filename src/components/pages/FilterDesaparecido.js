@@ -5,13 +5,13 @@ import search from '../../img/search.png';
 import filter from '../../img/filter.png';
 import { useForm } from '../../hooks/useForm';
 
-const FilterDesaparecido = ({ desaparecidos, desaparecidosFiltrados, setDesaparecidosFiltrados }) => {
+const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
 
     const handleSearchName = (e) => {
         let value = e.target.value.toLowerCase();
         let result = [];
         result = desaparecidos.filter((data) => {
-            return data.nombre.toLowerCase().search(value) != -1;
+            return data.nombre.toLowerCase().search(value) !== -1;
         });
         setDesaparecidosFiltrados(result);
     }
@@ -33,7 +33,7 @@ const FilterDesaparecido = ({ desaparecidos, desaparecidosFiltrados, setDesapare
     const handleSearchPais = (e) => {
         handleInputChange(e);
         const result = desaparecidos.filter((data) => {
-            return data.pais.search(e.target.value) != -1;
+            return data.pais.search(e.target.value) !== -1;
         });
         setDesaparecidosFiltrados(result);
     }
@@ -41,7 +41,7 @@ const FilterDesaparecido = ({ desaparecidos, desaparecidosFiltrados, setDesapare
     const handleSearchCiudad = (e) => {
         handleInputChange(e);
         const result = desaparecidos.filter((data) => {
-            return (data.ciudad.search(e.target.value) != -1) && (data.pais.search(pais) != -1);
+            return (data.ciudad.search(e.target.value) !== -1) && (data.pais.search(pais) !== -1);
         });
         setDesaparecidosFiltrados(result);
     }
@@ -117,6 +117,7 @@ const FilterDesaparecido = ({ desaparecidos, desaparecidosFiltrados, setDesapare
                                         <option value="Neiva">Neiva</option>
                                         <option value="Pitalito">Pitalito</option>
                                         <option value="La Plata">La Plata</option>
+                                        <option value="Garzón">Garzón</option>
                                     </select>
                                 </div>
                             </div>

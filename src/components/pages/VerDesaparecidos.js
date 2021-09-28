@@ -9,7 +9,7 @@ import FilterDesaparecido from './FilterDesaparecido';
 
 // Assets
 
-const VerDesaparecidos = ({ setMenu }) => {
+const VerDesaparecidos = ({ setMenu, setDesaparecido }) => {
     const [desaparecidos, setDesaparecidos] = useState([]);
     const [desaparecidosFiltrados, setDesaparecidosFiltrados] = useState(desaparecidos);
 
@@ -36,6 +36,7 @@ const VerDesaparecidos = ({ setMenu }) => {
             }
             <div className="cards__contenedor">
                 {desaparecidosFiltrados.map(d => (<CardDesaparecidos
+                    desaparecido={d}
                     key={d._id}
                     id={d._id}
                     nombre={`${d.nombre1} ${d.nombre2} ${d.apellido1} ${d.apellido2}`}
@@ -45,6 +46,9 @@ const VerDesaparecidos = ({ setMenu }) => {
                     ciudad={d.ciudad}
                     genero={d.genero}
                     edad={calcularEdad(d.fechaNacimiento)}
+                    setDesaparecido={setDesaparecido}
+                    setMenu={setMenu}
+                    show={5}
                 />))
                 }
             </div>

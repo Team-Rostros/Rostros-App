@@ -8,6 +8,7 @@ import female from '../../img/female.png';
 
 const FRDInformacionPersonal = ({
     file,
+    desaparecido,
     nombre1,
     apellido1,
     nombre2,
@@ -26,7 +27,7 @@ const FRDInformacionPersonal = ({
     return (
         <div id="ip" className={`tabcontent ${className}`} >
             <h2 className="titulo__index titulo__index--fs3 centrar-texto">Información Personal</h2>
-            <img className="tab__imagen" src={female} alt="Icono Foto" />
+            <img className="tab__imagen" src={desaparecido?`http://localhost:4000/api/desaparecido/photo/${desaparecido._id}`:female} alt="Icono Foto" />
             <input
                 ref={file}
                 type="file"
