@@ -178,6 +178,9 @@ const FRDInformacionPersonal = ({
                     >
                         <option>--Seleccione la ciudad--</option>
                         <option value="Neiva">Neiva </option>
+                        <option value="Pitalito">Pitalito </option>
+                        <option value="Garzón">Garzón </option>
+                        <option value="La Plata">La Plata </option>
                         <option value="Bogotá">Bogotá</option>
                         <option value="Medellín">Medellín</option>
                         <option value="Rivera">Rivera</option>

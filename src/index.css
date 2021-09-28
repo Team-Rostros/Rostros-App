@@ -75,7 +75,7 @@ a{
   text-decoration: none;
 }
 
-h1, h2, h3, h4{
+h1, h2, h3, h4, h5{
   font-family: var(--fuenteHeadings);
   line-height: 1.2;
 }
@@ -94,6 +94,15 @@ h3{
 
 h4{
   font-size: 2.8rem;
+}
+
+h5{
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--colorGrisOscuroBack);
+  margin-block-start: 5px;
+  margin-block-end: 5px;
 }
 
 img{
@@ -247,6 +256,18 @@ img{
   background-color: var(--colorGris);
   border: none;
   border-radius: 5px;
+}
+
+.input-style-filter {
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 80%;
+  height: 2.5rem;
+  background-color: transparent;
+  border: 1px solid var(--colorPrimario);
+  border-radius: 20px;
+  outline: none;
+  color: var(--colorGrisOscuroBack);
 }
 
 .check{
@@ -1490,16 +1511,17 @@ margin-bottom: 1rem;
 
 .search{
   display: grid;
-  max-width: 120rem;
+  max-width: 100rem;
   grid-template-columns: 3fr 1fr;
   justify-content: center;
   align-items: center;
   margin: 3rem auto;
+  border-bottom: 1px solid var(--colorPrimario);
 }
 
 @media (min-width: 768px) {
 .search{
-    max-width: 80%;
+    max-width: 60%;
     grid-template-columns: 3fr 1fr;
     margin: 2rem auto;
     justify-content: center;
@@ -1508,10 +1530,14 @@ margin-bottom: 1rem;
 }
 
 .input__search{
-  border: 1px solid var(--colorPrimario);
+  border: none;
   padding: 1rem;
+  outline: none;
 }
-
+.input__search:focus {
+  border: none;
+  outline: none;
+}
 .btn__search{
   background-color: transparent;
   border: none;
@@ -1519,7 +1545,7 @@ margin-bottom: 1rem;
 }
 
 .search__img{
-  width: 1.5rem;
+  height: 2rem;
 }
 
 
@@ -1531,7 +1557,32 @@ margin-bottom: 1rem;
 }
 
 .filter__img{
-  width: 2rem;
+  height: 2.8rem;
+  display: block;
+  margin: 15px 30px;
+  float: left;
+}
+
+.filter__section_1 {
+  display: block;
+  width: 30%;
+  float: left;
+}
+.filter__section_2 {
+  display: block;
+  width: 40%;
+  float: left;
+}
+
+.filter__item {
+  width: 40rem;
+  display: block;
+  color: var(--colorGrisOscuro);
+}
+
+.no_results {
+  text-align: center;
+  color: var(--colorGrisOscuro);
 }
 
 .card__des{
@@ -1543,6 +1594,7 @@ margin-bottom: 1rem;
 @media (min-width: 992px) {
   .cards__contenedor{
       display: grid;
+      margin-top: 1rem;
       grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
   }

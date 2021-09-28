@@ -80,5 +80,11 @@ export const reportarDesaparecido = async (desaparecido, photo) => {
 export const listarDesaparecido = async () => {
 
     const response = await clienteAxios.get('/api/desaparecido/list');
-    return response.data;
+    return response.data.map(d=>{
+        const nombre = `${d.nombre1} ${d.nombre2} ${d.apellido1} ${d.apellido2}`;
+        return {
+            ...d,
+            nombre: nombre,
+        }
+    });
 }

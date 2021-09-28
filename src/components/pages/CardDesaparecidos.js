@@ -30,7 +30,7 @@ const CardDesaparecidos = ({ id,nombre, pais, fechad, departamento, ciudad, gene
                     </div>
                 </div>
             </div>
-            <Link className="subir__btn centrar-texto bold">¿La has visto?</Link>
+            <Link to="#/" className="subir__btn centrar-texto bold">¿La has visto?</Link>
         </div>
     );
 }

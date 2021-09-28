@@ -17,8 +17,6 @@ import question from '../../img/question.png';
 import bell from '../../img/bell.png';
 import language from '../../img/language.png';
 import signout from '../../img/signout.png';
-import search from '../../img/search.png';
-import filter from '../../img/filter.png';
 import coinz from '../../img/coinz.png';
 
 const PanelUsuario = () => {
@@ -82,19 +80,6 @@ const PanelUsuario = () => {
                     </Link>
 
                 </nav>
-
-                <div className="search">
-                    <input className="input__search" type="search" placeholder="Consulte por el nombre" />
-                    <button className="btn__search"><img className="search__img" src={search} alt="Buscar" /></button>
-                </div>
-
-                <div className="filter">
-                    <div className="filter__checks">
-                        <button><img className="filter__img" src={filter} alt="Filtrar" /></button>
-                        <input type="checkbox" name="asc" id="asc" />Más reciente
-                        <input type="checkbox" name="des" id="desc" />Más antigua
-                    </div>
-                </div>
 
                 {/** Secciones */}
 
