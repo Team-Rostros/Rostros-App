@@ -1,6 +1,9 @@
 // Predefined packages
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import AuthContext from '../../context/autenticacion/authContext';
+
 
 // Custom packages
 import VerDesaparecidos from './VerDesaparecidos';
@@ -14,14 +17,46 @@ import home from '../../img/home.png';
 import usersolid from '../../img/home.png';
 import userfriends from '../../img/userfriends.png';
 import question from '../../img/question.png';
-import bell from '../../img/bell.png';
+import Bell from '../../img/bell.png';
 import language from '../../img/language.png';
 import signout from '../../img/signout.png';
 import coinz from '../../img/coinz.png';
 
+//Sweet Alert
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
+
 const PanelUsuario = () => {
 
     const [menu, setMenu] = useState(1);
+
+    //Extraer la informacion de autenticacion
+    const authContext = useContext(AuthContext);
+    const {usuario, usuarioAutenticado, cerrarSesion} = authContext;
+
+    useEffect(()=>{
+        usuarioAutenticado();
+    }, []);
+
+    const sweetAlert = ()=>{
+        let timerInterval
+        Swal.fire({
+        title: 'Cerrando Sesion',
+        timer: 1500,
+        timerProgressBar: true,
+        }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+            console.log('I was closed by the timer')
+        }
+        })
+
+        setTimeout(()=>{
+            cerrarSesion();
+        },3000)
+
+        
+    }
 
     return (
         <div className="grid__desaparecido">
@@ -68,16 +103,18 @@ const PanelUsuario = () => {
             </aside>
 
             <div className="grid__main">
+
                 <nav className="flexbox">
                     <Link className="label__nav" to="/#">
-                        <img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={bell} alt="Icono Campana" />
+                        <img className="flexbox__navimagen flexbox__navimagen--bell centrar-texto" src={Bell} alt="Icono Campana" />
                     </Link>
                     <Link className="label__nav" to="/#">
-                        English<img className="flexbox__navimagen" src={language} alt="Icono Lenguaje" />
+                        {usuario ?<a className="label__nav" >{usuario.nombre}</a> : null}
                     </Link>
-                    <Link className="label__nav" to="/">
-                        Salir<img className="flexbox__navimagen flexbox__navimagen--sign" src={signout} alt="Icono Sign Out" />
-                    </Link>
+                    <button 
+                            className="label__nav"
+                            onClick={() => sweetAlert()}
+                    >Salir</button>
 
                 </nav>
 
