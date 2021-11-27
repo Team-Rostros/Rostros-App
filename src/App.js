@@ -13,7 +13,7 @@ import CentroAyuda from './components/pages/CentroAyuda';
 import Donaciones from './components/pages/Donaciones';
 import Error404 from './components/pages/Error404';
 import Maintenance from './components/pages/Maintenance';
-import Panel from './components/pages/Panel';
+import PanelAdmin from './components/pages/PanelAdmin';
 import PanelUsuario from './components/pages/PanelUsuario';
 import Terminos from './components/pages/Terminos';
 import MisPublicaciones from './components/pages/MisPublicaciones';
@@ -46,12 +46,12 @@ function App() {
               <Route exact path="/anatomia-del-desaparecido" component={AnatomiaDelDesaparecido} />
               <Route exact path="/anatomias" component={Anatomias} />
               
-              <Route exact path="/panel" component={Panel} />
 
               <Route exact path="/centro-ayuda" component={CentroAyuda} />
               <Route exact path="/maintenance" component={Maintenance} />
               <RutaPrivada exact path="/mis-publicaciones" component={MisPublicaciones} />
               <RutaPrivada exact path="/panel-usuario" component={PanelUsuario} />
+              <RutaPrivada exact path="/admin" component={PanelAdmin} />
               <Route path="*" component={Error404} />
             </Switch>
           </Router>

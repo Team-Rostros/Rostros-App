@@ -1,61 +1,55 @@
 // Predefined packages
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import AlertaContext from '../../context/alertas/alertaContext';
-import AuthContext from '../../context/autenticacion/authContext';
-
-// Custom packages
-import { useForm } from '../../hooks/useFormValidate';
-import { regExpPassword } from '../../utils/validator';
+import { recuperarPassword } from '../../context/autenticacion/recuperarPassword';
+import { useForm } from '../../hooks/useForm';
 
 // Assets
 import logoazul from '../../img/logoazul.png';
 
-const RecuperarPassword = () => {
-
+const RecuperarPassword = ({history}) => {
 
     //Extraer los valores del context
     const alertaContext = useContext(AlertaContext);
-    const {alerta, mostrarAlerta} = alertaContext;
+    const { alerta, mostrarAlerta } = alertaContext;
 
-    const [values, cambiarContrasenia] = useState({
+    const [{ password, rpassword, email }, handleInputChange] = useForm({
         password: '',
         rpassword: '',
         email: '',
-    });   
-    const {email, password, rpassword } = values;
-    const onChange = (e)=>{
-        cambiarContrasenia({
-            ...values,
-            [e.target.name]:e.target.value
-        })
-    } 
+    });
 
-    const onSubmit = (e) =>{
+    const onSubmit = async (e) => {
         e.preventDefault();
-        
-        if(password === '' || rpassword === ''|| email === ''){
+
+        if (password === '' || rpassword === '' || email === '') {
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
             return;
         }
 
         //Revisar que los dos passwords sean iguales
-        if(password !== rpassword){
+        if (password !== rpassword) {
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
-        console.log(password);
-        //iniciarSesion({email, password});
 
+        const data = await recuperarPassword(email, password);
+        if (data.success) {
+            mostrarAlerta('Se modificó correctamente la contraseña', 'alerta-info');
+            history.replace('/login');
+        } else {
+            mostrarAlerta('No se logró modificar la contraseña', 'alerta-error');
+        }
     }
     return (
         <div className="contenedor__pass">
             <form className="rcontra" onSubmit={onSubmit}>
-            {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
+                {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                 <img className="rcontra__logoazul" src={logoazul} alt="Logo Rostros" />
                 <h3 className="centrar-texto">Recuperar Contraseña</h3>
 
 
-                
+
 
                 <div className="input">
                     <label className="label label--rcontra bold" htmlFor="email">Correo eléctronico</label>
@@ -65,9 +59,9 @@ const RecuperarPassword = () => {
                         name="email"
                         value={email}
                         className="input-style input-style--rcontra"
-                        onChange={onChange}
+                        onChange={handleInputChange}
                     />
-                     
+
                 </div>
                 <div className="input">
                     <label className="label label--rcontra bold" htmlFor="rcontra">Digite la nueva contraseña</label>
@@ -77,9 +71,9 @@ const RecuperarPassword = () => {
                         name="password"
                         value={password}
                         className="input-style input-style--rcontra"
-                        onChange={onChange}
+                        onChange={handleInputChange}
                     />
-                    
+
                 </div>
 
                 <div className="input">
@@ -90,9 +84,9 @@ const RecuperarPassword = () => {
                         name="rpassword"
                         value={rpassword}
                         className="input-style input-style--rcontra"
-                        onChange={onChange}
+                        onChange={handleInputChange}
                     />
-                    
+
                 </div>
 
                 <input type="submit" value="Actualizar" className="boton boton--primario centrar-bloque boton--rcontra" />

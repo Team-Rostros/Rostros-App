@@ -27,12 +27,16 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
         pais: '',
         ciudad: '',
     });
-    
+
     const { pais, ciudad } = values;
 
     const handleSearchPais = (e) => {
         handleInputChange(e);
-        const result = desaparecidos.filter((data) => {
+        const result = e.target.value === "Todos"
+        ?
+        desaparecidos
+        :
+        desaparecidos.filter((data) => {
             return data.pais.search(e.target.value) !== -1;
         });
         setDesaparecidosFiltrados(result);
@@ -40,7 +44,14 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
 
     const handleSearchCiudad = (e) => {
         handleInputChange(e);
-        const result = desaparecidos.filter((data) => {
+        console.log(e.target.value);
+        const result = e.target.value === "Todos"
+        ?
+        desaparecidos.filter((data) => {
+            return data.pais.search(pais) !== -1;
+        })
+        :
+        desaparecidos.filter((data) => {
             return (data.ciudad.search(e.target.value) !== -1) && (data.pais.search(pais) !== -1);
         });
         setDesaparecidosFiltrados(result);
@@ -72,7 +83,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                 id="asc"
                                 checked={selected === 'asc'}
                                 onClick={() => selectRadio('asc')}
-                                onChange={()=>{}}
+                                onChange={() => { }}
                             />
                             <label htmlFor="asc"> Más reciente</label>
                         </div>
@@ -83,7 +94,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                 id="desc"
                                 checked={selected === 'desc'}
                                 onClick={() => selectRadio('desc')}
-                                onChange={()=>{}}
+                                onChange={() => { }}
                             />
                             <label htmlFor="desc"> Más antigua</label>
                         </div>
@@ -101,7 +112,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                         onChange={handleSearchPais}
                                         required
                                     >
-                                        <option>País</option>
+                                        <option value="Todos">País</option>
                                         <option value="Colombia">Colombia</option>
                                         <option value="Venezuela">Venezuela</option>
                                     </select>
@@ -115,7 +126,7 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                         onChange={handleSearchCiudad}
                                         required
                                     >
-                                        <option>Ciudad</option>
+                                        <option value="Todos">Ciudad</option>
                                         <option value="Neiva">Neiva</option>
                                         <option value="Pitalito">Pitalito</option>
                                         <option value="La Plata">La Plata</option>

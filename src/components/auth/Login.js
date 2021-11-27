@@ -1,4 +1,4 @@
-import React, {Fragment, useState, useContext, useEffect} from 'react';
+import React, { Fragment, useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
@@ -9,58 +9,63 @@ const Login = (props) => {
 
     //Extraer los valores del context
     const alertaContext = useContext(AlertaContext);
-    const {alerta, mostrarAlerta} = alertaContext;
+    const { alerta, mostrarAlerta } = alertaContext;
 
     //Extraer los valores del context
     const authContext = useContext(AuthContext);
-    const{mensaje, autenticado, iniciarSesion} = authContext;
+    const { usuarioAutenticado, usuario: usr, mensaje, autenticado, iniciarSesion } = authContext;
 
     //En caso de que el password o usuario no exista
-    useEffect(()=>{
-        if(autenticado){
-             props.history.push('/panel-usuario');
+    const cargarYDeterminarUsuario = async () => {
+        await usuarioAutenticado();
+        if (usr !== null) {
+            if (usr.is_admin) props.history.replace('/admin');
+            else props.history.replace('/panel-usuario');
+        }
+    }
+    useEffect(() => {
+        if (autenticado) {
+            cargarYDeterminarUsuario();
         }
 
-        if(mensaje){
+        if (mensaje) {
             mostrarAlerta(mensaje.msg, mensaje.categoria);
         }
-    }, [mensaje, autenticado, props.history]);
+    }, [mensaje, autenticado, props.history, usr]);
 
     //State para iniciar sesión
 
     const [usuario, guardarUsuario] = useState({
-        email:'',
+        email: '',
         password: ''
     });
 
     //Extrayendo el usuario
 
-    const {email, password} = usuario;
+    const { email, password } = usuario;
 
-    
 
-    const onChange = (e)=>{
+
+    const onChange = (e) => {
         guardarUsuario({
             ...usuario,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
     //Cuando el usuario inicie sesion
 
-    const onSubmit = (e) =>{
+    const onSubmit = (e) => {
         e.preventDefault();
-        console.log('Llamando la funcion')
-        //Validar que no haya campos vacios
 
-        if(email === '' || password === ''){
+        //Validar que no haya campos vacios
+        if (email === '' || password === '') {
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
             return;
         }
 
         //Pasarlo a la accion
-        console.log(password);
-        iniciarSesion({email, password});
+        iniciarSesion({ email, password });
 
     }
     return (
@@ -76,19 +81,19 @@ const Login = (props) => {
 
                 <div className="grid__formulario grid__formulario--login">
                     <div className="contenedor--form formulario">
-                    {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
+                        {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                         <form
                             onSubmit={onSubmit}
                         >
                             <h1 className="centrar-texto myt-7">Iniciar sesión en Rostros</h1>
-                            
-                            
+
+
 
                             <div className="input">
                                 <label className="label bold" htmlFor="email">Correo eléctronico</label>
-                                <input 
+                                <input
                                     type="email"
-                                    className="input-style input--alone" 
+                                    className="input-style input--alone"
                                     id="email"
                                     name="email"
                                     value={email}
@@ -97,7 +102,7 @@ const Login = (props) => {
 
                             <div className="input">
                                 <label className="label bold" htmlFor="password">Digite la contraseña</label>
-                                <input 
+                                <input
                                     type="password"
                                     className="input-style"
                                     id="password"
@@ -110,8 +115,8 @@ const Login = (props) => {
                             <Link to={'/rpassword'} className="enlace">
                                 ¿Olvidaste tu contraseña?
                             </Link>
-                            
-                            <input 
+
+                            <input
                                 type="submit"
                                 value="Iniciar Sesión"
                                 className="boton boton--primario centrar-bloque"
@@ -119,15 +124,15 @@ const Login = (props) => {
                             <Link to={'/nueva-cuenta'} className="boton boton--secundario centrar-bloque">
                                 Registrarse
                             </Link>
-                            
-                            
+
+
                         </form>
                     </div>
                 </div>
-                
+
             </div>
         </Fragment>
     );
 }
- 
+
 export default Login;
