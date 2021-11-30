@@ -35,7 +35,7 @@ const RecuperarPassword = ({history}) => {
 
         const data = await recuperarPassword(email, password);
         if (data.success) {
-            mostrarAlerta('Se modificó correctamente la contraseña', 'alerta-info');
+            mostrarAlerta('Se realizó el cambio exitosamente', 'alerta-ok');
             history.replace('/login');
         } else {
             mostrarAlerta('No se logró modificar la contraseña', 'alerta-error');

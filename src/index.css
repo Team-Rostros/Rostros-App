@@ -323,6 +323,7 @@ img{
 }
 
 .boton--primario:hover{
+  cursor: pointer;
   background-color: var(--colorPrimarioOscuro);
 }
 
