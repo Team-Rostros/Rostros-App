@@ -7,9 +7,11 @@ import AuthContext from '../../context/autenticacion/authContext';
 
 // Custom packages
 import VerDesaparecidos from './VerDesaparecidos';
-
 import ItemDesaparecido from './ItemDesaparecido';
+import Donaciones from './Donaciones';
 import ReportarDesaparecido from './ReportarDesaparecido';
+import ActualizarDesaparecido from './ActualizarDesaparecido';
+import MisPublicaciones from './MisPublicaciones';
 
 // Assets
 import logoazulv from '../../img/logoazulv.png';
@@ -23,8 +25,8 @@ import misPublicaciones from '../../img/mis-publicaciones.png';
 
 //Sweet Alert
 import Swal from 'sweetalert2';
-import ActualizarDesaparecido from './ActualizarDesaparecido';
-import MisPublicaciones from './MisPublicaciones';
+
+
 
 const PanelUsuario = () => {
 
@@ -43,7 +45,7 @@ const PanelUsuario = () => {
             timer: 1500,
             timerProgressBar: true,
         }).then((result) => {
-            /* Read more about handling dismissals below */
+            
             if (result.dismiss === Swal.DismissReason.timer) {
                 console.log('I was closed by the timer')
             }
@@ -127,11 +129,13 @@ const PanelUsuario = () => {
 
                 {menu === 0
                     ?
+
                     <MisPublicaciones
-                        setMenu={setMenu}
-                        setDesaparecido={setDesaparecido}
-                        usuario={usuario}
+                                setMenu={setMenu}
+                                setDesaparecido={setDesaparecido}
+                                usuario={usuario}
                     />
+                   
                     :
                     menu === 1
                         ?

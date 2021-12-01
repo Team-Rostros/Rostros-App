@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Login from './components/auth/Login';
 import RecuperarPassword from './components/auth/RecuperarPassword';
 import Registro from './components/auth/Registro';
+import Nav from './components/pages/Nav';
 import Index from './components/Index';
 import AnatomiaDelDesaparecido from './components/pages/AnatomiaDelDesaparecido';
 import Anatomias from './components/pages/Anatomias';
@@ -17,6 +18,7 @@ import PanelAdmin from './components/pages/PanelAdmin';
 import PanelUsuario from './components/pages/PanelUsuario';
 import Terminos from './components/pages/Terminos';
 import MisPublicaciones from './components/pages/MisPublicaciones';
+import VerDesaparecidos from './components/pages/VerDesaparecidos';
 
 
 import AlertaState from './context/alertas/alertaState';
@@ -45,6 +47,7 @@ function App() {
               <Route exact path="/donaciones" component={Donaciones} />
               <Route exact path="/anatomia-del-desaparecido" component={AnatomiaDelDesaparecido} />
               <Route exact path="/anatomias" component={Anatomias} />
+              <Route exact path="/ver-desaparecidos" component={VerDesaparecidos} />
               
 
               <Route exact path="/centro-ayuda" component={CentroAyuda} />

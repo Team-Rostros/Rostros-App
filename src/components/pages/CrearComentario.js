@@ -28,7 +28,7 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
         <div className="crear__comentario">
             <form onSubmit={handleSubmit}>
                 <div className="input">
-                    <label className="label bold" htmlFor="tel">Escriba el comentario</label>
+                    <label className="label bold" htmlFor="tel">Escriba el comentario:</label>
                     <textarea
                         type="text"
                         className="input-style"

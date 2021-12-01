@@ -71,20 +71,27 @@ input:active{
 
 
 .crear__comentario {
-  max-width: 50rem;
+  max-width: 90%;
   padding: 2.8rem;
   margin-bottom: 50px;
   margin-top: 50px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid var(--colorPrimario);
   box-shadow: 1px 1px 10px var(--colorGrisOscuro);
   border-radius: 20px;
 }
 
 .crear__comentario textarea {
-  min-height: 80px;
-  max-height: 300px;
+  min-height: 10rem;
+  max-height: 50rem;
+  resize: none;
+  padding: 1rem;
+}
+
+.crear__comentario textarea:focus{
+  outline: none;
 }
 
 a{
@@ -129,6 +136,10 @@ img{
 
 .myt-7{
   margin-top: 7rem;
+}
+
+.mr-3{
+  margin-right: 3rem;
 }
 
 .no-margin{
@@ -1376,6 +1387,7 @@ a.nav__enlace:last-of-type:hover{
   text-align: center;
   margin: 0;
   width: 20rem;
+  cursor: pointer;
 }
 
 .flexbox__navimagen{
@@ -1778,7 +1790,7 @@ margin-bottom: 1rem;
 
 .alerta-ok {
   background-color: rgb(109, 211, 109);
-  color: rgb(2, 103, 2);
+  color: var(--colorBlanco);
 }
 
 
