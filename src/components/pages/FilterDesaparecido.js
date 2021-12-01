@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import search from '../../img/search.png';
 import filter from '../../img/filter.png';
 import { useForm } from '../../hooks/useForm';
+import FilterASCDESC from './FilterASCDESC';
 
 const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
 
@@ -14,13 +15,6 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
             return data.nombre.toLowerCase().search(value) !== -1;
         });
         setDesaparecidosFiltrados(result);
-    }
-
-    const [selected, setSelected] = useState('asc');
-
-    const selectRadio = (value) => {
-        setSelected(value);
-        setDesaparecidosFiltrados(c => [...c].reverse());
     }
 
     const [values, handleInputChange] = useForm({
@@ -73,32 +67,8 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
             <div className="filter">
                 <div className="filter__checks">
 
-                    <img className="filter__img" src={filter} alt="Filtrar" />
-
-                    <div className="filter__section_1">
-                        <div className="filter__item">
-                            <input
-                                type="radio"
-                                value="asc"
-                                id="asc"
-                                checked={selected === 'asc'}
-                                onClick={() => selectRadio('asc')}
-                                onChange={() => { }}
-                            />
-                            <label htmlFor="asc"> Más reciente</label>
-                        </div>
-                        <div className="filter__item">
-                            <input
-                                type="radio"
-                                value="desc"
-                                id="desc"
-                                checked={selected === 'desc'}
-                                onClick={() => selectRadio('desc')}
-                                onChange={() => { }}
-                            />
-                            <label htmlFor="desc"> Más antigua</label>
-                        </div>
-                    </div>
+                    <FilterASCDESC setList={setDesaparecidosFiltrados} />
+                    
                     <div className="filter__section_2">
                         <h5>Por ubicación</h5>
                         <div className="filter__item">
