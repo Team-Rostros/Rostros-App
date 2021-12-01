@@ -4,9 +4,6 @@ import React from 'react';
 // Custom packages
 import { extraerFecha } from '../../utils/convertidor';
 
-// Assets
-import female from '../../img/female.png';
-
 const CardComentariosAdmin = ({
     _id,
     descripcion,
@@ -19,7 +16,7 @@ const CardComentariosAdmin = ({
     return (
         <div className="grid grid__comentario">
             <div className="comentario__imagen">
-                <img className="comentario__img" src={female} alt="Icono Foto" />
+            <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${desaparecido._id}`} alt="Foto perfil" />
             </div>
 
             <div className="comentario__texto">
