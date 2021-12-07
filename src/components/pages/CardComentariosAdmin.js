@@ -23,7 +23,7 @@ const CardComentariosAdmin = ({
             <div className="comentario__texto">
                 <p>Comentario: {descripcion}</p>
                 <div className="comentario__flex">
-                    <span className="italic"> Creado en {extraerFecha(createdAt)} </span>
+                    <span className="italic"> Creado el: {extraerFecha(createdAt)} </span>
                     <span className="italic"> Autor: {`${creador.nombre} ${creador.apellido}`} </span>
                     <span className="italic"> Desaparecido: {`${desaparecido?.nombre1} ${desaparecido?.apellido1}`} </span>
                 </div>

@@ -38,12 +38,7 @@ body{
   font-size: 1.6rem;
   line-height: 2;
 }
-.d-bloc{
-  display: block;
-}
-.d-none{
-  display: none;
-}
+
 input:focus{
   border: 2px solid var(--colorPrimarioOscuro);
   outline: 0 none;
@@ -69,31 +64,6 @@ input:active{
   /*max-width: 80rem;*/
   max-width: 90%;
   margin: 0 auto;
-}
-
-
-.crear__comentario {
-  max-width: 90%;
-  padding: 2.8rem;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 1px solid var(--colorPrimario);
-  box-shadow: 1px 1px 10px var(--colorGrisOscuro);
-  border-radius: 20px;
-}
-
-.crear__comentario textarea {
-  min-height: 10rem;
-  max-height: 50rem;
-  resize: none;
-  padding: 1rem;
-}
-
-.crear__comentario textarea:focus{
-  outline: none;
 }
 
 a{
@@ -135,6 +105,13 @@ img{
 }
 
 /* Clases de utilidades */
+
+.d-bloc{
+  display: block;
+}
+.d-none{
+  display: none;
+}
 
 .myt-7{
   margin-top: 7rem;
@@ -308,8 +285,6 @@ img{
   justify-content: center;
   gap: 2rem;
 }
-
-
 
 .check__textazul{
   color: var(--colorPrimarioOscuro);
@@ -1197,10 +1172,6 @@ a.nav__enlace:last-of-type:hover{
   text-align: center;
 }
 
-
-
-
-
 @media (min-width: 768px) {
   .grid__footer{
       display: grid;
@@ -1223,8 +1194,6 @@ a.nav__enlace:last-of-type:hover{
   }
   
 }
-
-
 
 .titulo__footer{
   color: var(--colorBlanco);
@@ -1552,6 +1521,30 @@ a.nav__enlace:last-of-type:hover{
 .description__ir{
   height: 30rem;
   width: 100%;
+}
+
+.crear__comentario {
+  max-width: 90%;
+  padding: 2.8rem;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--colorPrimario);
+  box-shadow: 1px 1px 10px var(--colorGrisOscuro);
+  border-radius: 20px;
+}
+
+.crear__comentario textarea {
+  min-height: 10rem;
+  max-height: 50rem;
+  resize: none;
+  padding: 1rem;
+}
+
+.crear__comentario textarea:focus{
+  outline: none;
 }
 
 /* //////////////// .Crear desaparecido /////////////////////////*/

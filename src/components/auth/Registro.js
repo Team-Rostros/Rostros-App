@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
+import Select from 'react-select';
 //Assets
 import People from '../../img/people_search.png';
-import axios from 'axios';
+
 
 const Registro = (props) => {
     //Extraer los valores del context
@@ -63,6 +64,8 @@ const Registro = (props) => {
     const onRecaptcha = () =>{
         if(captcha.current.getValue()){
             //console.log('El usuario no es un robot');
+        }else{
+            alert('Por favor marque el recaptcha');
         }
     }
 
@@ -109,6 +112,14 @@ const Registro = (props) => {
 
     }
 
+
+    //Select paises
+
+    const paises = [
+        {value:"Colombia", label: "Colombia"},
+        {value:"Mexico", label: "Mexico"},
+        {value:"Canada", label: "Canada"},
+    ]
     
 
     return (
@@ -207,6 +218,19 @@ const Registro = (props) => {
                                         <option>--Seleccione un pais--</option>
                                         <option value="Colombia">Colombia</option>
                                     </select>
+                                    
+                                    {/* <div className="input-style">
+                                    <Select 
+                                        options={paises}
+                                        className="input-style"
+                                        id="pais"
+                                        name="pais"
+                                        value={pais}
+                                        onChange={onChange}
+                                    />
+                                    </div> */}
+
+                                    
                                 </div>
 
                                 <div className="input">
@@ -230,8 +254,42 @@ const Registro = (props) => {
                                         name="ciudad"
                                         value={ciudad}
                                         onChange={onChange}>
-                                        <option>--Seleccione una ciudad--</option>
+                                        <option>--Seleccione un municipio--</option>
+                                        <option value="Acevedo">Acevedo</option>
+                                        <option value="Algeciras">Algeciras</option>
+                                        <option value="Altamira">Altamira</option>
+                                        <option value="Baraya">Baraya</option>
+                                        <option value="Campoalegre">Campoalegre</option>
+                                        <option value="Colombia">Colombia</option>
+                                        <option value="Elias">Elias</option>
+                                        <option value="El Agrado">El Agrado</option>
+                                        <option value="Garzón">Garzón</option>
+                                        <option value="Gigante">Gigante</option>
+                                        <option value="Guadalupe">Guadalupe</option>
+                                        <option value="Hobo">Hobo</option>
+                                        <option value="Íquira">Íquira</option>
+                                        <option value="Isnos">Isnos</option>
+                                        <option value="La Argentina">La Argentina</option>
+                                        <option value="La Plata">La Plata</option>
+                                        <option value="Nátaga">Nátaga</option>
                                         <option value="Neiva">Neiva</option>
+                                        <option value="Oporapa">Oporapa</option>
+                                        <option value="Paicol">Paicol</option>
+                                        <option value="Palermo">Palermo</option>
+                                        <option value="Palestina">Palestina</option>
+                                        <option value="Pital">Pital</option>
+                                        <option value="Pitalito">Pitalito</option>
+                                        <option value="Rivera">Rivera</option>
+                                        <option value="Saladoblanco">Saladoblanco</option>
+                                        <option value="Santa María">Santa María</option>
+                                        <option value="San Agustín">San Agustín</option>
+                                        <option value="Suaza">Suaza</option>
+                                        <option value="Tarquí">Tarquí</option>
+                                        <option value="Tello">Tello</option>
+                                        <option value="Teruel">Teruel</option>
+                                        <option value="Tesalia">Tesalia</option>
+                                        <option value="Timaná">Timaná</option>
+                                        <option value="Villavieja">Villavieja</option>
                                     </select>
                                 </div>
                             </div>
@@ -240,7 +298,7 @@ const Registro = (props) => {
                                 <div className="input">
                                     <label className="label bold" htmlFor="tel">Digite el teléfono</label>
                                     <input
-                                        type="tel"
+                                        type="number"
                                         className="input-style"
                                         id="tel"
                                         name="tel"
@@ -256,7 +314,8 @@ const Registro = (props) => {
                                         id="dni"
                                         name="dni"
                                         value={dni}
-                                        onChange={onChange}>
+                                        onChange={onChange}
+                                        required>
                                         <option>--Seleccione un dni--</option>
                                         <option value="CC">CC - Cédula de Ciudadanía</option>
                                         <option value="TI">TI - Tarjeta de identidad</option>
@@ -277,8 +336,8 @@ const Registro = (props) => {
                             </div>
 
                             <div className="check">
-                                <label className="check__terms" htmlFor="boxterm">Al hacer clic en <span className="check__textazul">"Registrarte"</span>, aceptas nuestras <span className="check__textazul">Condiciones,
-                                    la Política de datos y la Política de cookies.</span></label>
+                                <label className="check__terms" htmlFor="boxterm">Al hacer clic en <span className="check__textazul">"Registrarte"</span>, aceptas nuestras <span className="check__textazul"><Link to="/terminos" target="_blank">Condiciones,
+                                    la Política de datos y la Política de cookies.</Link></span></label>
                                 <input 
                                     type="checkbox"
                                     id="boxterm"

@@ -143,8 +143,6 @@ const FRDInformacionPersonal = ({
                     >
                         <option>--Seleccione el pais--</option>
                         <option value="Colombia" >Colombia</option>
-                        <option value="Venezuela" >Venezuela</option>
-                        <option value="Brasil" >Brasil</option>
                     </select>
                 </div>
 
@@ -161,8 +159,6 @@ const FRDInformacionPersonal = ({
                     >
                         <option>--Seleccione el departamento--</option>
                         <option value="Huila">Huila</option>
-                        <option value="Cundinamarca">Cundinamarca</option>
-                        <option value="Antioquia">Antioquia</option>
                     </select>
                 </div>
             </div>
@@ -179,14 +175,42 @@ const FRDInformacionPersonal = ({
                         onChange={handleInputChange}
                         
                     >
-                        <option>--Seleccione la ciudad--</option>
-                        <option value="Neiva">Neiva </option>
-                        <option value="Pitalito">Pitalito </option>
-                        <option value="Garzón">Garzón </option>
-                        <option value="La Plata">La Plata </option>
-                        <option value="Bogotá">Bogotá</option>
-                        <option value="Medellín">Medellín</option>
+                        <option>--Seleccione un municipio--</option>
+                        <option value="Acevedo">Acevedo</option>
+                        <option value="Algeciras">Algeciras</option>
+                        <option value="Altamira">Altamira</option>
+                        <option value="Baraya">Baraya</option>
+                        <option value="Campoalegre">Campoalegre</option>
+                        <option value="Colombia">Colombia</option>
+                        <option value="Elias">Elias</option>
+                        <option value="El Agrado">El Agrado</option>
+                        <option value="Garzón">Garzón</option>
+                        <option value="Gigante">Gigante</option>
+                        <option value="Guadalupe">Guadalupe</option>
+                        <option value="Hobo">Hobo</option>
+                        <option value="Íquira">Íquira</option>
+                        <option value="Isnos">Isnos</option>
+                        <option value="La Argentina">La Argentina</option>
+                        <option value="La Plata">La Plata</option>
+                        <option value="Nátaga">Nátaga</option>
+                        <option value="Neiva">Neiva</option>
+                        <option value="Oporapa">Oporapa</option>
+                        <option value="Paicol">Paicol</option>
+                        <option value="Palermo">Palermo</option>
+                        <option value="Palestina">Palestina</option>
+                        <option value="Pital">Pital</option>
+                        <option value="Pitalito">Pitalito</option>
                         <option value="Rivera">Rivera</option>
+                        <option value="Saladoblanco">Saladoblanco</option>
+                        <option value="Santa María">Santa María</option>
+                        <option value="San Agustín">San Agustín</option>
+                        <option value="Suaza">Suaza</option>
+                        <option value="Tarquí">Tarquí</option>
+                        <option value="Tello">Tello</option>
+                        <option value="Teruel">Teruel</option>
+                        <option value="Tesalia">Tesalia</option>
+                        <option value="Timaná">Timaná</option>
+                        <option value="Villavieja">Villavieja</option>
                     </select>
                 </div>
 

@@ -21,6 +21,7 @@ import userfriends from '../../img/userfriends.png';
 import question from '../../img/question.png';
 import Bell from '../../img/bell.png';
 import coinz from '../../img/coinz.png';
+import document from '../../img/file-alt-solid.png';
 import misPublicaciones from '../../img/mis-publicaciones.png';
 
 //Sweet Alert
@@ -95,6 +96,13 @@ const PanelUsuario = () => {
                 </div>
 
                 <div className="item__aside">
+                    <Link to="/donar">
+                        <img className="aside__imagen" src={coinz} alt="Icono Coin" />
+                        <h3 className="titulo__aside centrar-texto">Donar</h3>
+                    </Link>
+                </div>
+
+                <div className="item__aside d-none">
                     <Link to="#/" onClick={() => setMenu(3)}>
                         <img className="aside__imagen" src={coinz} alt="Icono Coin" />
                         <h3 className="titulo__aside centrar-texto">Donar</h3>
@@ -102,9 +110,23 @@ const PanelUsuario = () => {
                 </div>
 
                 <div className="item__aside">
-                    <Link to="#/" onClick={() => setMenu(4)}>
+                    <Link to="/centro-ayuda">
                         <img className="aside__imagen" src={question} alt="Icono Question" />
                         <h3 className="titulo__aside centrar-texto">Ayuda</h3>
+                    </Link>
+                </div>
+
+                <div className="item__aside d-none">
+                    <Link to="#/" onClick={() => setMenu(4)}>
+                        <img className="aside__imagen" src={question} alt="Icono Question" />                      
+                        <h3 className="titulo__aside centrar-texto">Ayuda</h3>
+                    </Link>
+                </div>
+
+                <div className="item__aside">
+                    <Link to={{ pathname: "https://www.google.com" }} target="_blank">
+                        <img className="aside__imagen" src={document} alt="Icono Documentation" />   
+                        <h3 className="titulo__aside centrar-texto">Documentación</h3>
                     </Link>
                 </div>
             </aside>
