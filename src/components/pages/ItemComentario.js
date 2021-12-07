@@ -6,8 +6,11 @@ import React from 'react';
 import female from '../../img/female.png';
 import { extraerFecha } from '../../utils/convertidor';
 
-const ItemComentario = ({comentario, creador}) => {
 
+
+const ItemComentario = ({comentario, creador}) => {
+    console.log(comentario);
+    console.log(creador.nombre);
     return (
         <div className="grid grid__comentario">
             <div className="comentario__imagen">
@@ -15,10 +18,10 @@ const ItemComentario = ({comentario, creador}) => {
             </div>
 
             <div className="comentario__texto">
-                <p>{comentario.descripcion}</p>
-                <span className="italic mr-3">creado en {extraerFecha(comentario.createdAt)}</span>
-                <span className="italic">creado por : {`${comentario.creador} ${comentario.apellido}`} </span>
-                <span className="italic"> Autor: {`${comentario.nombre} ${comentario.apellido}`} </span>
+                <p>Comentario: {comentario.descripcion}</p>
+                <span className="italic mr-3">Creado en {extraerFecha(comentario.createdAt)}</span>
+                <span className="italic">Creado por : {`${comentario.creador}`} </span>
+                
             </div>
 
         </div>

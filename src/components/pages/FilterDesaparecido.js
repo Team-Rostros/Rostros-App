@@ -84,7 +84,6 @@ const FilterDesaparecido = ({ desaparecidos, setDesaparecidosFiltrados }) => {
                                     >
                                         <option value="Todos">País</option>
                                         <option value="Colombia">Colombia</option>
-                                        <option value="Venezuela">Venezuela</option>
                                     </select>
                                 </div>
 

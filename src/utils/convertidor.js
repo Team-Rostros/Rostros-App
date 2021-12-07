@@ -14,7 +14,7 @@ export const calcularEdad = (fecha) => {
 
 export const extraerFecha = (fecha) => {
     const date = new Date(fecha);
-    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()+1}`;
+    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
 }
 
 export const extraerTiempo = (fecha) => {

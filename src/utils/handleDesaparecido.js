@@ -147,7 +147,6 @@ export const actualizarDesaparecido = async (desaparecido, photo) => {
     data.append('estatura', estatura);
     data.append('cdientes', cdientes);
     data.append('descripcion', descripcion);
-    console.log(photo);
     if(photo!==undefined)data.append('photo', photo);
     data.append('creador', creador);
 
@@ -189,13 +188,12 @@ export const marcarEncontrado = async (id) => {
 }
 
 export const listarComentarios = async (id) =>{
-
     const response = await clienteAxios.get('/api/comentarios/list/'+id);
     return response.data;
 }
 
 export const crearComentarios = async (comentario)=>{
-    console.log(comentario)
+
     const response = await (await clienteAxios.post('/api/comentarios/create', comentario));
 
     if (response.data.error) return false;

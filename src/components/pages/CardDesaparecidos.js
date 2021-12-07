@@ -12,14 +12,13 @@ const CardDesaparecidos = ({desaparecido, id,nombre, pais, fechad, departamento,
                     <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${id}`} alt="Foto perfil" />
                     <a href="#/"
                         onClick={()=>{setDesaparecido(desaparecido);setMenu(show);}}
-                        style={{fontSize:'1.3rem', textDecoration:'underline'}}
-                        className="bold azul"
+                        className="bold azul card__detalle"
                     >
                         {show===4?'Editar': 'Ver detalle'}
                     </a>
                 </div>
 
-                <div className="card_descrip justify">
+                <div className="card_descrip">
                     <span className="bold azul">Nombre Completo: </span><p className="ib no-margin">{nombre}</p>
                     <div className="card__group">
                         <div className="group">
@@ -37,7 +36,12 @@ const CardDesaparecidos = ({desaparecido, id,nombre, pais, fechad, departamento,
                     </div>
                 </div>
             </div>
-            <Link to="#/" className="subir__btn centrar-texto bold">¿La has visto?</Link>
+            <a href="#/"
+                onClick={()=>{setDesaparecido(desaparecido);setMenu(show);}}
+                className="subir__btn centrar-texto bold"
+            >
+                {show===4?'Editar': '¿Lo viste?'}
+            </a>
         </div>
     );
 }

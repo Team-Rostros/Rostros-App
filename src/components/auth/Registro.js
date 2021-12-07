@@ -5,6 +5,7 @@ import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
 //Assets
 import People from '../../img/people_search.png';
+import axios from 'axios';
 
 const Registro = (props) => {
     //Extraer los valores del context
@@ -37,6 +38,7 @@ const Registro = (props) => {
         password:'',
         rpassword:'',
         pais:'',
+        departamento:'',
         ciudad:'',
         tel:'',
         dni:'',
@@ -45,7 +47,7 @@ const Registro = (props) => {
 
     //Extrayendo el usuario
 
-    const {nombre, apellido, email, password, rpassword, pais, ciudad, tel, dni, ide} = usuario;
+    const {nombre, apellido, email, password, rpassword, pais, departamento, ciudad, tel, dni, ide} = usuario;
 
     const onChange = (e)=>{
         guardarUsuario({
@@ -70,7 +72,7 @@ const Registro = (props) => {
         e.preventDefault();
 
         //Validar que no haya campos vacios
-        if(nombre.trim === '' || apellido.trim === '' || email.trim === '' || password.trim === '' || rpassword.trim === '' || pais.trim === '' || ciudad.trim === '' || tel.trim === '' || dni.trim === '' || ide.trim === '' ){
+        if(nombre.trim === '' || apellido.trim === '' || email.trim === '' || password.trim === '' || rpassword.trim === '' || pais.trim === '' || departamento.trim === '' || ciudad.trim === '' || tel.trim === '' || dni.trim === '' || ide.trim === '' ){
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
             return;
         }
@@ -98,16 +100,16 @@ const Registro = (props) => {
             email,
             password,
             pais,
+            departamento,
             ciudad,
             tel,
             dni,
             ide
         }).toString();
 
-        
-
-
     }
+
+    
 
     return (
         <Fragment>
@@ -192,7 +194,7 @@ const Registro = (props) => {
                                 </div>
                             </div>
                             
-                            <div className="input-group">
+                            <div className="input-group input-group--tres">
                                 <div className="input">
                                     <label className="label bold" htmlFor="pais">País</label>
                                     <select 
@@ -204,6 +206,19 @@ const Registro = (props) => {
                                         onChange={onChange}>
                                         <option>--Seleccione un pais--</option>
                                         <option value="Colombia">Colombia</option>
+                                    </select>
+                                </div>
+
+                                <div className="input">
+                                    <label className="label bold" htmlFor="departamento">Departamento</label>
+                                    <select 
+                                        className="input-style"
+                                        id="departamento"
+                                        name="departamento"
+                                        value={departamento}
+                                        onChange={onChange}>
+                                        <option>--Seleccione una departamento--</option>
+                                        <option value="Huila">Huila</option>
                                     </select>
                                 </div>
 

@@ -25,13 +25,15 @@ const SeccionComentarios = ({ desaparecido }) => {
             <section className="comentarios contenedor container--80rem">
                 <h3 className="centrar-texto titulo__index titulo__index--fs3">Comentarios</h3>
                 {comentarios.map(c => <ItemComentario
-                    key={c._id}
+                    key={c._id} {...c}
                     comentario={c}
-                />)}
+                />
+                )}
 
             </section>
+            {comentarios.length === 0 && <p className="no_results">No hay resultados disponibles...</p>}
             {ocultar?<a href="#/" onClick={() => setOcultar(c=>!c)} className="subir__btn centrar-texto bold subir__btn--azul">
-                Crear Comentario
+                Crear comentario
             </a>
             :
             <CrearComentario
@@ -39,6 +41,7 @@ const SeccionComentarios = ({ desaparecido }) => {
                 setOcultar={setOcultar} 
                 cargarComentarios={cargarComentarios}/>
             }
+            
         </>
     );
 }

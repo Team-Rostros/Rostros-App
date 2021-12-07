@@ -17,7 +17,7 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
             desaparecido: desaparecido._id,
             creador: desaparecido.creador,
         });
-
+        
         if(data) alert("Creado exitosamente");
 
         cleanOBjects();
@@ -25,7 +25,7 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
         cargarComentarios(desaparecido._id);
     }
     return (
-        <div className="crear__comentario">
+        <div className="crear__comentario mb-5">
             <form onSubmit={handleSubmit}>
                 <div className="input">
                     <label className="label bold" htmlFor="tel">Escriba el comentario:</label>

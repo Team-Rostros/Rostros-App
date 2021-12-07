@@ -12,15 +12,16 @@ const CardComentariosAdmin = ({
     createdAt,
     eliminar
 }) => {
-
+    console.log(creador);
     return (
+        
         <div className="grid grid__comentario">
             <div className="comentario__imagen">
             <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${desaparecido._id}`} alt="Foto perfil" />
             </div>
 
             <div className="comentario__texto">
-                <p>{descripcion}</p>
+                <p>Comentario: {descripcion}</p>
                 <div className="comentario__flex">
                     <span className="italic"> Creado en {extraerFecha(createdAt)} </span>
                     <span className="italic"> Autor: {`${creador.nombre} ${creador.apellido}`} </span>

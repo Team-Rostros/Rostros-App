@@ -28,11 +28,13 @@ const FRDInformacionPersonal = ({
         <div id="ip" className={`tabcontent ${className}`} >
             <h2 className="titulo__index titulo__index--fs3 centrar-texto">Información Personal</h2>
             <img className="tab__imagen" src={desaparecido?`http://localhost:4000/api/desaparecido/photo/${desaparecido._id}`:female} alt="Icono Foto" />
+            <label className="subir__enlace" for="subir_img">Subir imagen</label>
             <input
+                id="subir_img"
                 ref={file}
                 type="file"
                 accept="image/png, image/jpeg"
-                className="subir__btn"
+                className="subir__btn subir__btn--file"
             />
 
 
