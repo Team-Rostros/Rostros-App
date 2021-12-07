@@ -1,6 +1,7 @@
 import React from 'react';
 import { useForm } from '../../hooks/useForm';
 import { crearComentarios } from '../../utils/handleDesaparecido';
+import Swal from 'sweetalert2';
 
 const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
 
@@ -18,7 +19,13 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
             creador: desaparecido.creador,
         });
         
-        if(data) alert("Creado exitosamente");
+        if(data){
+            Swal.fire(
+                '¡Buen trabajo!',
+                '¡Comentario creado!',
+                'success'
+            );
+        }
 
         cleanOBjects();
         setOcultar(c=>!c);

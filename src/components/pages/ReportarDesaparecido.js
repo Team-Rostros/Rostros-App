@@ -88,11 +88,19 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
         if (desaparecido) {
             const data = await actualizarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
             if (data) {
-                alert("Se Actualizó el registro");
+                Swal.fire(
+                    '¡Buen trabajo!',
+                    '¡Se actualizó el registro!',
+                    'success'
+                );
                 setMenuGlobal(0);
             }
             else {
-                alert("Error al intentar actualizar");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Error al intentar actualizar',
+                  })
             }
 
             setMenu(1);
@@ -103,11 +111,19 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
                 const data = await reportarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
 
                 if (data) {
-                    alert("Se creó exitosamente");
+                    Swal.fire(
+                        '¡Buen trabajo!',
+                        'Se creó exitosamente',
+                        'success'
+                    );
                     cleanOBjects();
                 }
                 else {
-                    alert("No se ha reportado al desaparecido que intentas registrar");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'No se ha reportado al desaparecido que intentas registrar'
+                      });
                 }
 
                 setMenu(1);

@@ -86,16 +86,13 @@ const Registro = (props) => {
             return;
         }
 
-
         //Revisar que los dos passwords sean iguales
         if(password !== rpassword){
             mostrarAlerta('La contraseñas no son iguales', 'alerta-error');
             return;
         }
         
-        //Pasarlo a la accion
-
-        
+        //Pasarlo a la accion     
 
         registrarUsuario({
             nombre,

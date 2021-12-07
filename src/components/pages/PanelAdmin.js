@@ -28,7 +28,7 @@ const PanelAdmin = ({ history }) => {
     const sweetAlert = () => {
         Swal.fire({
             title: 'Cerrando Sesion',
-            timer: 1500,
+            timer: 500,
             timerProgressBar: true,
         }).then((result) => {
             /* Read more about handling dismissals below */
@@ -39,7 +39,7 @@ const PanelAdmin = ({ history }) => {
 
         setTimeout(() => {
             cerrarSesion();
-        }, 2000);
+        }, 500);
     }
 
     return (
