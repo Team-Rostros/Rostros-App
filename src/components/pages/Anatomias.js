@@ -19,9 +19,9 @@ const Anatomias = () => {
       <aside className="grid__sidebarnav grid__sidebarnav--ana">
         <ul className="block no-margin">
           <Link className="grid__enlace" to="/">Volver</Link>
-          <Link className="grid__enlace" to="/#">Centro de ayuda</Link>
-          <Link className="grid__enlace" to="/#">Términos y condiciones</Link>
-          <Link className="grid__enlace" to="/#">Anatomía del desaparecido</Link>
+          <Link className="grid__enlace" to="/centro-ayuda">Centro de ayuda</Link>
+          <Link className="grid__enlace" to="/terminos">Términos y condiciones</Link>
+          <Link className="grid__enlace" to="/anatomias">Anatomía del desaparecido</Link>
         </ul>
       </aside>
 

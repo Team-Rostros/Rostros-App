@@ -16,7 +16,7 @@ import MisPublicaciones from './MisPublicaciones';
 // Assets
 import logoazulv from '../../img/logoazulv.png';
 import home from '../../img/home.png';
-import usersolid from '../../img/home.png';
+import usersolid from '../../img/usersolid.png';
 import userfriends from '../../img/userfriends.png';
 import question from '../../img/question.png';
 import Bell from '../../img/bell.png';
@@ -110,7 +110,7 @@ const PanelUsuario = () => {
                 </div>
 
                 <div className="item__aside">
-                    <Link to="/centro-ayuda">
+                    <Link to="/centro-ayuda" target="_blank">
                         <img className="aside__imagen" src={question} alt="Icono Question" />
                         <h3 className="titulo__aside centrar-texto">Ayuda</h3>
                     </Link>
@@ -124,7 +124,7 @@ const PanelUsuario = () => {
                 </div>
 
                 <div className="item__aside">
-                    <Link to={{ pathname: "https://www.google.com" }} target="_blank">
+                    <Link to={{ pathname: "https://rostrosdoc.netlify.app/" }} target="_blank">
                         <img className="aside__imagen" src={document} alt="Icono Documentation" />   
                         <h3 className="titulo__aside centrar-texto">Documentación</h3>
                     </Link>

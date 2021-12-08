@@ -62,7 +62,7 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
         clabios,
         estatura,
         cdientes,
-        // infromacion relevante
+        // informacion relevante
         descripcion
     } = values;
 
