@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import ReCAPTCHA from "react-google-recaptcha";
 import AlertaContext from '../../context/alertas/alertaContext';
 import AuthContext from '../../context/autenticacion/authContext';
-import Select from 'react-select';
+import { useForm } from "react-hook-form";
+
 //Assets
 import People from '../../img/people_search.png';
 
@@ -71,11 +72,15 @@ const Registro = (props) => {
 
     //Cuando el usuario inicie sesion
 
+    //Validacion
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
     const onSubmit = (e) =>{
-        e.preventDefault();
+        //e.preventDefault();
 
         //Validar que no haya campos vacios
-        if(nombre.trim === '' || apellido.trim === '' || email.trim === '' || password.trim === '' || rpassword.trim === '' || pais.trim === '' || departamento.trim === '' || ciudad.trim === '' || tel.trim === '' || dni.trim === '' || ide.trim === '' ){
+        if(nombre.trim === '' || apellido.trim === '' || email.trim === '' || password.trim === '' || rpassword.trim === '' || tel.trim === '' || ide.trim === '' ){
             mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
             return;
         }
@@ -110,15 +115,6 @@ const Registro = (props) => {
     }
 
 
-    //Select paises
-
-    const paises = [
-        {value:"Colombia", label: "Colombia"},
-        {value:"Mexico", label: "Mexico"},
-        {value:"Canada", label: "Canada"},
-    ]
-    
-
     return (
         <Fragment>
             <div className="layout__grid">
@@ -134,7 +130,7 @@ const Registro = (props) => {
                     <div className="contenedor--form ">
                         {alerta ? (<div className={`alerta ${alerta.categoria}`}>{alerta.msg}</div>) : null}
                         <form
-                            onSubmit={onSubmit}
+                            onSubmit={handleSubmit(onSubmit)}
                         >
                             <h1 className="no-margin centrar-texto myt-7">Registrarse en Rostros</h1>
                             <p className="centrar-texto bold">*Por favor complete el formulario*</p>
@@ -205,53 +201,42 @@ const Registro = (props) => {
                             <div className="input-group input-group--tres">
                                 <div className="input">
                                     <label className="label bold" htmlFor="pais">País</label>
-                                    <select 
-                                        
+                                    <select {...register("pais", { required: true })} 
                                         className="input-style"
                                         id="pais"
                                         name="pais"
                                         value={pais}
                                         onChange={onChange}>
-                                        <option>--Seleccione un pais--</option>
+                                        <option value="">--Seleccione un pais--</option>
                                         <option value="Colombia">Colombia</option>
                                     </select>
-                                    
-                                    {/* <div className="input-style">
-                                    <Select 
-                                        options={paises}
-                                        className="input-style"
-                                        id="pais"
-                                        name="pais"
-                                        value={pais}
-                                        onChange={onChange}
-                                    />
-                                    </div> */}
-
+                                    {errors.pais && "Este campo es requerido"}
                                     
                                 </div>
 
                                 <div className="input">
                                     <label className="label bold" htmlFor="departamento">Departamento</label>
-                                    <select 
+                                    <select {...register("departamento", { required: true })}
                                         className="input-style"
                                         id="departamento"
                                         name="departamento"
                                         value={departamento}
                                         onChange={onChange}>
-                                        <option>--Seleccione una departamento--</option>
+                                        <option value="">--Seleccione una departamento--</option>
                                         <option value="Huila">Huila</option>
                                     </select>
+                                    {errors.departamento && "Este campo es requerido"}
                                 </div>
 
                                 <div className="input">
                                     <label className="label bold" htmlFor="ciudad">Ciudad</label>
-                                    <select 
+                                    <select {...register("ciudad", { required: true })}
                                         className="input-style"
                                         id="ciudad"
                                         name="ciudad"
                                         value={ciudad}
                                         onChange={onChange}>
-                                        <option>--Seleccione un municipio--</option>
+                                        <option value="">--Seleccione un municipio--</option>
                                         <option value="Acevedo">Acevedo</option>
                                         <option value="Algeciras">Algeciras</option>
                                         <option value="Altamira">Altamira</option>
@@ -288,6 +273,7 @@ const Registro = (props) => {
                                         <option value="Timaná">Timaná</option>
                                         <option value="Villavieja">Villavieja</option>
                                     </select>
+                                    {errors.ciudad && "Este campo es requerido"}
                                 </div>
                             </div>
 
@@ -306,17 +292,18 @@ const Registro = (props) => {
 
                                 <div className="input">
                                     <label className="label bold" htmlFor="dni">Seleccione el tipo de DNI</label>
-                                    <select 
+                                    <select {...register("dni", { required: true })}
                                         className="input-style"
                                         id="dni"
                                         name="dni"
                                         value={dni}
                                         onChange={onChange}
                                         required>
-                                        <option>--Seleccione un dni--</option>
+                                        <option value="">--Seleccione un dni--</option>
                                         <option value="CC">CC - Cédula de Ciudadanía</option>
                                         <option value="TI">TI - Tarjeta de identidad</option>
                                     </select>
+                                    {errors.dni && "Este campo es requerido"}
                                 </div>
 
                                 <div className="input">
@@ -333,12 +320,13 @@ const Registro = (props) => {
                             </div>
 
                             <div className="check">
-                                <label className="check__terms" htmlFor="boxterm">Al hacer clic en <span className="check__textazul">"Registrarte"</span>, aceptas nuestras <span className="check__textazul"><Link to="/terminos" target="_blank">Condiciones,
+                                <label  className="check__terms" htmlFor="boxterm">Al hacer clic en <span className="check__textazul">"Registrarte"</span>, aceptas nuestras <span className="check__textazul"><Link to="/terminos" target="_blank">Condiciones,
                                     la Política de datos y la Política de cookies.</Link></span></label>
-                                <input 
+                                <input {...register("boxterm", { required: true })}
                                     type="checkbox"
                                     id="boxterm"
                                     name="boxterm"/>
+                                {errors.boxterm && alert('Los terminos y condiciones son requeridos')}    
                             </div>
 
                            <div className="recaptcha">
