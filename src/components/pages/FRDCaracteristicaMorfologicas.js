@@ -1,7 +1,10 @@
 // Predefined packages
 import React from 'react';
+import { useForm } from "react-hook-form";
 
 // Custom packages
+
+
 
 const FRDCaracteristicaMorfologicas = ({
     craneo,
@@ -16,6 +19,8 @@ const FRDCaracteristicaMorfologicas = ({
     className
 }) => {
 
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
     return (
         <div id="cm" className={`tabcontent ${className}`}>
             <h2 className="titulo__index titulo__index--fs3 centrar-texto">Características Morfológicas</h2>
@@ -24,21 +29,23 @@ const FRDCaracteristicaMorfologicas = ({
             <div className="input-group">
                 <div className="input">
                     <label className="label bold" htmlFor="craneo">Craneo</label>
-                    <select
+                    <select {...register("craneo", { required: true })}
                         type="text"
                         name="craneo"
                         id="craneo"
                         value={craneo}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
-                        <option>--Seleccione el craneo--</option>
+                        <option value="">--Seleccione el craneo--</option>
                         <option value="Dolicocefalico" >Dolicocefalico</option>
                         <option value="Braquicefalo" >Braquicefalo</option>
                         <option value="Mesocefalo" >Mesocefalo</option>
 
                     </select>
+
+                    {errors.craneo && "Este campo es requerido"}
                 </div>
 
                 <div className="input">
@@ -50,7 +57,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={rostro}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione el rostro--</option>
                         <option value="Redondo">Redondo</option>
@@ -74,7 +81,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={cuello}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione el cuello--</option>
                         <option value="Largo">Largo</option>
@@ -93,7 +100,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={ojos}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione los ojos--</option>
                         <option value="Almendrados" >Almendrados</option>
@@ -117,7 +124,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={cuerpo}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione el cuerpo--</option>
                         <option value="Ectomorfo" >Ectomorfo</option>
@@ -135,7 +142,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={labios}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione los labios--</option>
                         <option value="Delgados" >Delgados</option>
@@ -162,7 +169,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={oreja}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione las orejas--</option>
                         <option value="Largas" >Largas</option>
@@ -187,7 +194,7 @@ const FRDCaracteristicaMorfologicas = ({
                         value={nariz}
                         className="input-style"
                         onChange={handleInputChange}
-
+                        required
                     >
                         <option>--Seleccione la nariz--</option>
                         <option value="Aguileña">Aguileña</option>

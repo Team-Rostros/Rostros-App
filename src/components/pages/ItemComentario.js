@@ -20,7 +20,7 @@ const ItemComentario = ({comentario, creador}) => {
             <div className="comentario__texto">
                 <p>Comentario: {comentario.descripcion}</p>
                 <span className="italic mr-3">Creado en {extraerFecha(comentario.createdAt)}</span>
-                <span className="italic">Creado por : {`${comentario.creador}`} </span>
+                <span className="italic">Creado por : {`${comentario.creador.nombre} ${comentario.creador.apellido}`} </span>
                 
             </div>
 

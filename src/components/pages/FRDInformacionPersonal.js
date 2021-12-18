@@ -48,7 +48,7 @@ const FRDInformacionPersonal = ({
                         value={nombre1}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
 
@@ -61,7 +61,7 @@ const FRDInformacionPersonal = ({
                         value={apellido1}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
             </div>
@@ -76,7 +76,7 @@ const FRDInformacionPersonal = ({
                         value={nombre2}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
 
@@ -89,7 +89,7 @@ const FRDInformacionPersonal = ({
                         value={apellido2}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
             </div>
@@ -104,7 +104,7 @@ const FRDInformacionPersonal = ({
                         value={genero}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     >
                         <option>--Seleccione el genero--</option>
                         <option value="Masculino">Masculino</option>
@@ -122,7 +122,7 @@ const FRDInformacionPersonal = ({
                         value={fechaNacimiento}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
             </div>
@@ -139,7 +139,7 @@ const FRDInformacionPersonal = ({
                         value={pais}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     >
                         <option>--Seleccione el pais--</option>
                         <option value="Colombia" >Colombia</option>
@@ -155,7 +155,7 @@ const FRDInformacionPersonal = ({
                         value={departamento}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     >
                         <option>--Seleccione el departamento--</option>
                         <option value="Huila">Huila</option>
@@ -173,7 +173,7 @@ const FRDInformacionPersonal = ({
                         value={ciudad}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     >
                         <option>--Seleccione un municipio--</option>
                         <option value="Acevedo">Acevedo</option>
@@ -223,7 +223,7 @@ const FRDInformacionPersonal = ({
                         value={zipcode}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
 
@@ -236,7 +236,7 @@ const FRDInformacionPersonal = ({
                         value={fechad}
                         className="input-style"
                         onChange={handleInputChange}
-                        
+                        required
                     />
                 </div>
             </div>

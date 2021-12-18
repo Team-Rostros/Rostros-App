@@ -16,10 +16,6 @@ const VerDesaparecidosAdmin = () => {
         setDesaparecidosFiltrados(data.reverse());
     }
 
-    useEffect(() => {
-        loadDesaparecidos();
-    }, []);
-
     const eliminar = async (id) => {
 
         const resultado = await Swal.fire({
@@ -32,7 +28,7 @@ const VerDesaparecidosAdmin = () => {
         if (resultado.isConfirmed) {
             const data = await eliminarDesaparecido(id);
             if (data._id) {
-                setDesaparecidos(c => [...c].filter(c => c._id != id));
+                setDesaparecidos(c => [...c].filter(co => co._id != id));
                 Swal.fire(
                     'Eliminado Correctamente',
                     '¡Todo salió bien!',

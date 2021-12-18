@@ -2,13 +2,16 @@
 import React, { useState, useRef, useContext } from 'react';
 
 // Custom packages
+import AlertaContext from '../../context/alertas/alertaContext';
 import FRDCaracteristicaMorfologicas from './FRDCaracteristicaMorfologicas';
 import FRDCaracteristicasFisicas from './FRDCaracteristicasFisicas';
 import FRDInformacionPersonal from './FRDInformacionPersonal';
 import FRDInformacionRelevante from './FRDInformacionRelevante';
 import { actualizarDesaparecido, reportarDesaparecido } from '../../utils/handleDesaparecido';
 import { useForm } from '../../hooks/useForm';
+//import { useForm} from "react-hook-form";
 import AuthContext from '../../context/autenticacion/authContext';
+
 
 //Sweet Alert
 import Swal from 'sweetalert2';
@@ -19,6 +22,12 @@ import { extraerFecha } from '../../utils/convertidor';
 
 
 const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
+
+    //const { register, handleSubmit, formState: { errors } } = useForm();
+
+    //Extraer los valores del context
+    const alertaContext = useContext(AlertaContext);
+    const {alerta, mostrarAlerta} = alertaContext;
 
     //Extraer los valores del context
     const authContext = useContext(AuthContext);
@@ -77,13 +86,13 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
             text: 'Todos los campos son requeridos incluida la imagen'
         })
     }
-
-
-
-    const handleSubmit = async (e) => {
+    const onSubmit = async (e) => {
         e.preventDefault();
 
         await usuarioAutenticado();
+
+        
+        
 
         if (desaparecido) {
             const data = await actualizarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
@@ -107,6 +116,13 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
         } else {
 
             if (file.current.files[0]) {
+
+                //Validar que no haya campos vacios
+                if(nombre1.trim === '' || nombre2.trim === '' || apellido1.trim === '' || apellido2.trim === '' || zipcode.trim === '' || peso.trim === '' || estatura.trim === '' ){
+                    //mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
+                    alert('hola')
+                    return;
+                }
 
                 const data = await reportarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
 
@@ -148,7 +164,7 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
             </div>
 
 
-            <form className="grid__form container--80rem" onSubmit={handleSubmit}>
+            <form className="grid__form container--80rem" onSubmit={onSubmit}>
                 <FRDInformacionPersonal
                     desaparecido={desaparecido}
                     file={file}

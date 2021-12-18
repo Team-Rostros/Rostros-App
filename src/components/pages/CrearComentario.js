@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { useForm } from '../../hooks/useForm';
 import { crearComentarios } from '../../utils/handleDesaparecido';
+import AuthContext from '../../context/autenticacion/authContext';
 import Swal from 'sweetalert2';
 
 const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
+
+    //Extraer la informacion de autenticacion
+    const authContext = useContext(AuthContext);
+    const {usuario} = authContext;
 
     const [value, handleInputChange, cleanOBjects] = useForm({
         descripcion:''
@@ -16,7 +21,7 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
         const data = await crearComentarios({
             descripcion:descripcion,
             desaparecido: desaparecido._id,
-            creador: desaparecido.creador,
+            creador: usuario._id,
         });
         
         if(data){

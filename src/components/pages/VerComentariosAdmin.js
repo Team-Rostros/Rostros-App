@@ -24,6 +24,8 @@ const VerComentariosAdmin = () => {
 
         if (resultado.isConfirmed) {
             const data = await eliminarComentario(id);
+
+            console.log(data);
             if (data._id) {
                 setComentarios(c => [...c].filter(c => c._id != id));
                 Swal.fire(
