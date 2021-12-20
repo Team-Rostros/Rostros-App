@@ -86,14 +86,15 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
             text: 'Todos los campos son requeridos incluida la imagen'
         })
     }
+
     const onSubmit = async (e) => {
         e.preventDefault();
+
+        alert('SIRVO');
 
         await usuarioAutenticado();
 
         
-        
-
         if (desaparecido) {
             const data = await actualizarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
             if (data) {
@@ -117,12 +118,7 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
 
             if (file.current.files[0]) {
 
-                //Validar que no haya campos vacios
-                if(nombre1.trim === '' || nombre2.trim === '' || apellido1.trim === '' || apellido2.trim === '' || zipcode.trim === '' || peso.trim === '' || estatura.trim === '' ){
-                    //mostrarAlerta('Todos los campos son obligatorios', 'alerta-error');
-                    alert('hola')
-                    return;
-                }
+
 
                 const data = await reportarDesaparecido({ ...values, creador: usuario._id }, file.current ? file.current.files[0] : 0);
 
