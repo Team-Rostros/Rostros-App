@@ -1862,11 +1862,55 @@ margin-bottom: 1rem;
   color: var(--colorBlanco);
 }
 
-
 .alerta-error {
   background-color: rgb(230, 78, 78);
   color: var(--colorBlanco);
 }
+
+/*Modales*/
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.help{
+  color: var(--colorPrimario);
+  cursor: pointer;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  min-height: 500px;
+  justify-content: space-between;
+}
+
+.grid__cols5{
+  margin-top: 7rem;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.flex__col{
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.height__p{
+  height: 10rem;
+  font-size: 15px !important;
+}
+
+
 
 
 
