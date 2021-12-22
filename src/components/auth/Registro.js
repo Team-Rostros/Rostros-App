@@ -144,6 +144,7 @@ const Registro = (props) => {
                                         name="nombre"
                                         value={nombre}
                                         onChange={onChange}
+                                        data-cy="nombre-input"
                                         required/>
                                 </div>
 
@@ -156,6 +157,7 @@ const Registro = (props) => {
                                         name="apellido"
                                         value={apellido}
                                         onChange={onChange}
+                                        data-cy="apellido-input"
                                         required/>
                                 </div>
                             </div>
@@ -169,6 +171,7 @@ const Registro = (props) => {
                                     name="email"
                                     value={email}
                                     onChange={onChange}
+                                    data-cy="correo-input"
                                     required/>
                             </div>
 
@@ -182,6 +185,7 @@ const Registro = (props) => {
                                         name="password"
                                         value={password}
                                         onChange={onChange}
+                                        data-cy="contra-input"
                                         required/>
                                 </div>
 
@@ -194,6 +198,7 @@ const Registro = (props) => {
                                         name="rpassword"
                                         value={rpassword}
                                         onChange={onChange}
+                                        data-cy="rcontra-input"
                                         required/>
                                 </div>
                             </div>
@@ -206,6 +211,7 @@ const Registro = (props) => {
                                         id="pais"
                                         name="pais"
                                         value={pais}
+                                        data-cy="pais-input"
                                         onChange={onChange}>
                                         <option value="">--Seleccione un pais--</option>
                                         <option value="Colombia">Colombia</option>
@@ -221,6 +227,7 @@ const Registro = (props) => {
                                         id="departamento"
                                         name="departamento"
                                         value={departamento}
+                                        data-cy="departamento-input"
                                         onChange={onChange}>
                                         <option value="">--Seleccione una departamento--</option>
                                         <option value="Huila">Huila</option>
@@ -235,6 +242,7 @@ const Registro = (props) => {
                                         id="ciudad"
                                         name="ciudad"
                                         value={ciudad}
+                                        data-cy="ciudad-input"
                                         onChange={onChange}>
                                         <option value="">--Seleccione un municipio--</option>
                                         <option value="Acevedo">Acevedo</option>
@@ -286,6 +294,7 @@ const Registro = (props) => {
                                         id="tel"
                                         name="tel"
                                         value={tel}
+                                        data-cy="telefono-input"
                                         onChange={onChange}
                                         required/>
                                 </div>
@@ -297,11 +306,12 @@ const Registro = (props) => {
                                         id="dni"
                                         name="dni"
                                         value={dni}
+                                        data-cy="tdni-input"
                                         onChange={onChange}
                                         required>
                                         <option value="">--Seleccione un dni--</option>
-                                        <option value="CC">CC - Cédula de Ciudadanía</option>
-                                        <option value="TI">TI - Tarjeta de identidad</option>
+                                        <option value="CC">CC</option>
+                                        <option value="TI">TI</option>
                                     </select>
                                     {errors.dni && "Este campo es requerido"}
                                 </div>
@@ -314,6 +324,7 @@ const Registro = (props) => {
                                         id="ide"
                                         name="ide"
                                         value={ide}
+                                        data-cy="dni-input"
                                         onChange={onChange}
                                         required/>
                                 </div>
@@ -325,16 +336,17 @@ const Registro = (props) => {
                                 <input {...register("boxterm", { required: true })}
                                     type="checkbox"
                                     id="boxterm"
+                                    data-cy="check-input"
                                     name="boxterm"/>
                                 {errors.boxterm && alert('Los terminos y condiciones son requeridos')}    
                             </div>
 
                            <div className="recaptcha">
-                            <ReCAPTCHA
+                            {/* <ReCAPTCHA
                                     ref={captcha}
                                     sitekey="6LeDTg0cAAAAAId_gOEk7lQhrO5zJR8dxPlnX1pg"
                                     onChange={onRecaptcha}
-                                />
+                                /> */}
                            </div>
 
                             
@@ -343,6 +355,7 @@ const Registro = (props) => {
                                 <input 
                                     type="submit"
                                     value="Registrarse"
+                                    data-cy="submit-input"
                                     className="boton boton--primario" 
                                 />
                                 <Link to={'/login'} className="boton boton--secundario">

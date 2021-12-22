@@ -59,6 +59,7 @@ const RecuperarPassword = ({history}) => {
                         name="email"
                         value={email}
                         className="input-style input-style--rcontra"
+                        data-cy="correo-input"
                         onChange={handleInputChange}
                     />
 
@@ -71,6 +72,7 @@ const RecuperarPassword = ({history}) => {
                         name="password"
                         value={password}
                         className="input-style input-style--rcontra"
+                        data-cy="contra-input"
                         onChange={handleInputChange}
                     />
 
@@ -84,12 +86,18 @@ const RecuperarPassword = ({history}) => {
                         name="rpassword"
                         value={rpassword}
                         className="input-style input-style--rcontra"
+                        data-cy="rcontra-input"
                         onChange={handleInputChange}
                     />
 
                 </div>
 
-                <input type="submit" value="Actualizar" className="boton boton--primario centrar-bloque boton--rcontra" />
+                <input 
+                    type="submit" 
+                    value="Actualizar" 
+                    className="boton boton--primario centrar-bloque boton--rcontra"
+                    data-cy="submit-input" 
+                    />
             </form>
         </div>
     );

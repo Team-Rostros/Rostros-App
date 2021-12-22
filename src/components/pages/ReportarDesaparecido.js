@@ -214,7 +214,7 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
                 />
 
             </form>
-            {menu !== 4 && <a href="#/" onClick={() => setMenu(c => c + 1)} className="subir__btn centrar-texto bold">Siguiente</a>}
+            {menu !== 4 && <a href="#/" data-cy="next1-input" onClick={() => setMenu(c => c + 1)} className="subir__btn centrar-texto bold">Siguiente</a>}
         </div>
     );
 }

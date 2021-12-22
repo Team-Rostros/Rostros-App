@@ -32,7 +32,7 @@ const SeccionComentarios = ({ desaparecido }) => {
 
             </section>
             {comentarios.length === 0 && <p className="no_results">No hay resultados disponibles...</p>}
-            {ocultar?<a href="#/" onClick={() => setOcultar(c=>!c)} className="subir__btn centrar-texto bold subir__btn--azul">
+            {ocultar?<a href="#/" data-cy="ccomentario-input" onClick={() => setOcultar(c=>!c)} className="subir__btn centrar-texto bold subir__btn--azul">
                 Crear comentario
             </a>
             :

@@ -36,7 +36,7 @@ const CardDesaparecidoAdmin = ({
                     </div>
                 </div>
             </div>
-            <a href="#/" onClick={() => eliminar(id)} className="subir__btn subir__btn--rojo centrar-texto bold ">Eliminar</a>
+            <a href="#/" onClick={() => eliminar(id)} data-cy="eliminardes-input" className="subir__btn subir__btn--rojo centrar-texto bold ">Eliminar</a>
         </div>
     );
 }

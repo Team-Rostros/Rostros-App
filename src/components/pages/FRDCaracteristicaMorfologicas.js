@@ -49,6 +49,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="craneo"
                         value={craneo}
                         className="input-style"
+                        data-cy="craneo-select"
                         onChange={handleInputChange}
                         
                     >
@@ -67,7 +68,7 @@ const FRDCaracteristicaMorfologicas = ({
                         titulo="Craneo">
                         <Contenido>
                             <h1>Tipos de craneos</h1>
-                            <div className="grid">
+                            <div className="grid__modal">
                                 <div className='flex__col'>
                                     <p>Dolicocefalia</p>
                                     <p className='height__p'>Se caracteriza por ser largo en su longitud, y se ve aumentada por lo estrecho de las sienes, , el rostro se ve más alargado y delgado.</p>
@@ -101,6 +102,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="rostro"
                         value={rostro}
                         className="input-style"
+                        data-cy="rostro-select"
                         onChange={handleInputChange}
                         
                     >
@@ -120,7 +122,7 @@ const FRDCaracteristicaMorfologicas = ({
                         titulo="Rostro">
                         <Contenido>
                             <h1>Tipos de rostros</h1>
-                            <div className="grid grid__cols5">
+                            <div className="grid__modal grid__cols5">
                                 <div className='flex__col'>
                                     <p>Redondo</p>
                                     <p className='height__p'>Este tipo de rostro se caracteriza por tener aproximadamente la misma altura que anchura.</p>
@@ -173,6 +175,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="cuello"
                         value={cuello}
                         className="input-style"
+                        data-cy="cuello-select"
                         onChange={handleInputChange}
                         
                     >
@@ -197,6 +200,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="ojos"
                         value={ojos}
                         className="input-style"
+                        data-cy="ojos-select"
                         onChange={handleInputChange}
                         
                     >
@@ -216,7 +220,7 @@ const FRDCaracteristicaMorfologicas = ({
                         titulo="Ojos">
                         <Contenido>
                             <h1>Tipos de ojos</h1>
-                            <div className="grid grid__cols5">
+                            <div className="grid__modal grid__cols5">
                                 <div className='flex__col'>
                                     <p>Almendrados</p>
                                     <p className='height__p'>Se trata del tipo de ojos más común. Tal como su nombre apunta, tienen una forma similar a una almendra.</p>
@@ -274,6 +278,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="cuerpo"
                         value={cuerpo}
                         className="input-style"
+                        data-cy="cuerpo-select"
                         onChange={handleInputChange}
                         
                     >
@@ -289,7 +294,7 @@ const FRDCaracteristicaMorfologicas = ({
                         titulo="Cuerpo">
                         <Contenido>
                             <h1>Tipos de cuerpos</h1>
-                            <div className="grid">
+                            <div className="grid__modal">
                                 <div className='flex__col'>
                                     <p>Ectomorfo</p>
                                     <p className='height__p'>Una persona de cuerpo ectomorfo es alguien que acumula poca grasa. Así mismo, su estructura ósea no suele ser muy gruesa, lo que no necesariamente implica que sean individuos de huesos débiles.</p>
@@ -319,6 +324,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="labios"
                         value={labios}
                         className="input-style"
+                        data-cy="labios-select"
                         onChange={handleInputChange}
                         
                     >
@@ -346,6 +352,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="oreja"
                         value={oreja}
                         className="input-style"
+                        data-cy="oreja-select"
                         onChange={handleInputChange}
                         
                     >
@@ -376,6 +383,7 @@ const FRDCaracteristicaMorfologicas = ({
                         id="nariz"
                         value={nariz}
                         className="input-style"
+                        data-cy="nariz-select"
                         onChange={handleInputChange}
                         
                     >
@@ -394,7 +402,7 @@ const FRDCaracteristicaMorfologicas = ({
                         titulo="Rostro">
                         <Contenido>
                             <h1>Tipos de nariz</h1>
-                            <div className="grid grid__cols5">
+                            <div className="grid__modal grid__cols5">
                                 <div className='flex__col'>
                                     <p>Aguileña</p>
                                     <p className='height__p'>Es un tipo de nariz que se caracteriza por tener un tabique muy pronunciado que se curva hacia la punta.</p>

@@ -65,7 +65,7 @@ const PanelAdmin = ({ history }) => {
                 </div>
 
                 <div className="item__aside">
-                    <Link to="#/" onClick={() => setMenu(1)}>
+                    <Link to="#/" data-cy="desaparecidos-input" onClick={() => setMenu(1)}>
                         <img className="aside__imagen" src={userfriends} alt="Icono Users" />
                         <h3 className="titulo__aside centrar-texto">Ver Desaparecidos</h3>
                     </Link>

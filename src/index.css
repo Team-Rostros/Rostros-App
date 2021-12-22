@@ -1880,7 +1880,7 @@ margin-bottom: 1rem;
   cursor: pointer;
 }
 
-.grid{
+.grid__modal{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;

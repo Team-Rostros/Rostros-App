@@ -37,6 +37,7 @@ const CardDesaparecidos = ({desaparecido, id,nombre, pais, fechad, departamento,
                 </div>
             </div>
             <a href="#/"
+                data-cy="viste-input"
                 onClick={()=>{setDesaparecido(desaparecido);setMenu(show);}}
                 className="subir__btn centrar-texto bold"
             >

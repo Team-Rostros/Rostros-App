@@ -50,10 +50,12 @@ const VerComentariosAdmin = () => {
                     <FilterASCDESC setList={setComentarios} />
                 </div>
             </div>            
-
+            
             <div className="cards__contenedor">
                 {comentarios.map((c) => <CardComentariosAdmin key={c._id} {...c} eliminar={eliminar} />)}
             </div>
+
+            {comentarios.length === 0 && <p className="no_results">No hay resultados disponibles...</p>}
         </div>
     );
 }

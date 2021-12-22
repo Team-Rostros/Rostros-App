@@ -97,6 +97,7 @@ const Login = (props) => {
                                     id="email"
                                     name="email"
                                     value={email}
+                                    data-cy="usuario-input"
                                     onChange={onChange} />
                             </div>
 
@@ -108,6 +109,7 @@ const Login = (props) => {
                                     id="password"
                                     name="password"
                                     value={password}
+                                    data-cy="contra-input"
                                     onChange={onChange} />
                             </div>
 
@@ -119,6 +121,7 @@ const Login = (props) => {
                             <input
                                 type="submit"
                                 value="Iniciar Sesión"
+                                data-cy="submit-input"
                                 className="boton boton--primario centrar-bloque"
                             />
                             <Link to={'/nueva-cuenta'} className="boton boton--secundario centrar-bloque">

@@ -48,11 +48,12 @@ const CrearComentario = ({desaparecido, setOcultar, cargarComentarios}) => {
                         name="descripcion"
                         value={descripcion}
                         onChange={handleInputChange}
+                        data-cy="crearcomentario-input"
                         required>
                     </textarea>
 
                 </div>
-                <input type="submit" className="subir__btn centrar-texto bold" value="Agregar comentario"/>
+                <input type="submit" data-cy="submit-comentario" className="subir__btn centrar-texto bold" value="Agregar comentario"/>
             </form>
         </div>
     );

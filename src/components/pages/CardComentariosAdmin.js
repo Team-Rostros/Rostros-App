@@ -28,7 +28,7 @@ const CardComentariosAdmin = ({
                     <span className="italic"> Desaparecido: {`${desaparecido?.nombre1} ${desaparecido?.apellido1}`} </span>
                 </div>
             </div>
-            <a href="#/" onClick={()=>eliminar(_id)} className="subir__btn subir__btn--rojo centrar-texto bold subir__btn--100">Eliminar</a>
+            <a href="#/" onClick={()=>eliminar(_id)} data-cy="eliminarcomentario-input" className="subir__btn subir__btn--rojo centrar-texto bold subir__btn--100">Eliminar</a>
         </div>
     );
 }

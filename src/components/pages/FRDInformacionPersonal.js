@@ -33,6 +33,7 @@ const FRDInformacionPersonal = ({
                 type="file"
                 accept="image/png, image/jpeg"
                 className="subir__btn"
+                data-cy="imagen-input"
             />
 
 
@@ -45,6 +46,7 @@ const FRDInformacionPersonal = ({
                         id="nombre1"
                         value={nombre1}
                         className="input-style"
+                        data-cy="name1-input"
                         onChange={handleInputChange}
                         
                     />
@@ -58,6 +60,7 @@ const FRDInformacionPersonal = ({
                         id="apellido1"
                         value={apellido1}
                         className="input-style"
+                        data-cy="lastname1-input"
                         onChange={handleInputChange}
                         
                     />
@@ -73,6 +76,7 @@ const FRDInformacionPersonal = ({
                         id="nombre2"
                         value={nombre2}
                         className="input-style"
+                        data-cy="name2-input"
                         onChange={handleInputChange}
                         
                     />
@@ -86,6 +90,7 @@ const FRDInformacionPersonal = ({
                         id="apellido2"
                         value={apellido2}
                         className="input-style"
+                        data-cy="lastname2-input"
                         onChange={handleInputChange}
                         
                     />
@@ -101,6 +106,7 @@ const FRDInformacionPersonal = ({
                         id="genero"
                         value={genero}
                         className="input-style"
+                        data-cy="genero-select"
                         onChange={handleInputChange}
                         
                     >
@@ -119,6 +125,7 @@ const FRDInformacionPersonal = ({
                         id="fechaNacimiento"
                         value={fechaNacimiento}
                         className="input-style"
+                        data-cy="fechan-select"
                         onChange={handleInputChange}
                         
                     />
@@ -136,6 +143,7 @@ const FRDInformacionPersonal = ({
                         id="pais"
                         value={pais}
                         className="input-style"
+                        data-cy="pais-select"
                         onChange={handleInputChange}
                         
                     >
@@ -152,6 +160,7 @@ const FRDInformacionPersonal = ({
                         id="departamento"
                         value={departamento}
                         className="input-style"
+                        data-cy="departamento-select"
                         onChange={handleInputChange}
                         
                     >
@@ -170,6 +179,7 @@ const FRDInformacionPersonal = ({
                         id="ciudad"
                         value={ciudad}
                         className="input-style"
+                        data-cy="ciudad-select"
                         onChange={handleInputChange}
                         
                     >
@@ -220,6 +230,7 @@ const FRDInformacionPersonal = ({
                         id="zipcode"
                         value={zipcode}
                         className="input-style"
+                        data-cy="zip-input"
                         onChange={handleInputChange}
                         
                     />
@@ -233,6 +244,7 @@ const FRDInformacionPersonal = ({
                         id="fechad"
                         value={fechad}
                         className="input-style"
+                        data-cy="fecha-select"
                         onChange={handleInputChange}
                         
                     />

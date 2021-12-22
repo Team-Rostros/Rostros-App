@@ -27,12 +27,14 @@ const FRDInformacionRelevante = ({
                             desaparición: Talla, marca, estado de las prendas, descripción general de las prendas
                             y pertenencias."
                     onChange={handleInputChange}
+                    data-cy="info-input"
                     required
                 ></textarea>
 
                 <input
                     type="submit"
                     className="subir__btn centrar-texto bold"
+                    data-cy="submit-input"
                 />
 
             </div>

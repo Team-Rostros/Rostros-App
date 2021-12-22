@@ -32,6 +32,7 @@ const FRDCaracteristicasFisicas = ({
                         id="piel"
                         value={piel}
                         className="input-style"
+                        data-cy="piel-select"
                         onChange={handleInputChange}
                         
                     >
@@ -52,6 +53,7 @@ const FRDCaracteristicasFisicas = ({
                         id="cpiel"
                         value={cpiel}
                         className="input-style"
+                        data-cy="cpiel-select"
                         onChange={handleInputChange}
                         
                     >
@@ -85,6 +87,7 @@ const FRDCaracteristicasFisicas = ({
                         id="pigm"
                         value={pigm}
                         className="input-style"
+                        data-cy="pig-select"
                         onChange={handleInputChange}
                         
                     >
@@ -105,6 +108,7 @@ const FRDCaracteristicasFisicas = ({
                         id="peso"
                         value={peso}
                         className="input-style"
+                        data-cy="peso-input"
                         onChange={handleInputChange}
                         
                     />
@@ -120,6 +124,7 @@ const FRDCaracteristicasFisicas = ({
                         id="cabello"
                         value={cabello}
                         className="input-style"
+                        data-cy="cabello-select"
                         onChange={handleInputChange}
                         
                     >
@@ -139,6 +144,7 @@ const FRDCaracteristicasFisicas = ({
                         id="ccabello"
                         value={ccabello}
                         className="input-style"
+                        data-cy="ccabello-input"
                         onChange={handleInputChange}
                         
                     >
@@ -162,6 +168,7 @@ const FRDCaracteristicasFisicas = ({
                         id="cojos"
                         value={cojos}
                         className="input-style"
+                        data-cy="cojos-select"
                         onChange={handleInputChange}
                         
                     >
@@ -185,10 +192,12 @@ const FRDCaracteristicasFisicas = ({
                         id="clabios"
                         value={clabios}
                         className="input-style"
+                        data-cy="clabios-select"
                         onChange={handleInputChange}
                         
                     >
                         <option>--Seleccione el color de labios--</option>
+                        <option value="Rojo intenso" >Rojo</option>
                         <option value="Rosados claros" >Rosados claros</option>
                         <option value="Rosados intermedio" >Rosados intermedio</option>
                         <option value="Rosados oscuros" >Rosados oscuros</option>
@@ -208,6 +217,7 @@ const FRDCaracteristicasFisicas = ({
                         id="estatura"
                         value={estatura}
                         className="input-style"
+                        data-cy="estatura-input"
                         onChange={handleInputChange}
                         
                     />
@@ -221,6 +231,7 @@ const FRDCaracteristicasFisicas = ({
                         id="cdientes"
                         value={cdientes}
                         className="input-style"
+                        data-cy="cdientes-select"
                         onChange={handleInputChange}
                         
                     >

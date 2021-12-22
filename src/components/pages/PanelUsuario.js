@@ -82,14 +82,14 @@ const PanelUsuario = () => {
                 </div>
 
                 <div className="item__aside">
-                    <Link to="#/" onClick={() => setMenu(1)}>
+                    <Link to="#/" data-cy="reportar-input" onClick={() => setMenu(1)}>
                         <img className="aside__imagen" src={usersolid} alt="Icono User" />
                         <h3 className="titulo__aside centrar-texto">Reportar Desaparecido</h3>
                     </Link>
                 </div>
 
                 <div className="item__aside">
-                    <Link to="#/" onClick={() => setMenu(2)}>
+                    <Link to="#/" data-cy="comentario-input" onClick={() => setMenu(2)}>
                         <img className="aside__imagen" src={userfriends} alt="Icono Users" />
                         <h3 className="titulo__aside centrar-texto">Ver Desaparecidos</h3>
                     </Link>
