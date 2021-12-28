@@ -101,7 +101,7 @@ const FRDCaracteristicasFisicas = ({
                 </div>
 
                 <div className="input">
-                    <label className="label bold" htmlFor="peso">Peso</label>
+                    <label className="label bold" htmlFor="peso">Peso: Kg</label>
                     <input
                         type="number"
                         name="peso"
@@ -210,7 +210,7 @@ const FRDCaracteristicasFisicas = ({
 
             <div className="input-group">
                 <div className="input">
-                    <label className="label bold" htmlFor="estatura">Estatura</label>
+                    <label className="label bold" htmlFor="estatura">Estatura: Cm</label>
                     <input
                         type="number"
                         name="estatura"

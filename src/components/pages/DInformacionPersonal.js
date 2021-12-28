@@ -22,7 +22,7 @@ const DInformacionPersonal = ({
     return (
         <div className={`tabcontent ${className}`}>
             <h2 className="titulo__index titulo__index--fs3 centrar-texto">Información Personal</h2>
-            <img className="tab__imagen" src={`http://localhost:4000/api/desaparecido/photo/${id}`} alt="Icono Foto" />
+            <img className="tab__imagen" src={`https://rostrosapp-servidor.herokuapp.com/api/desaparecido/photo/${id}`} alt="Icono Foto" />
 
             <form className="grid__form container--80rem">
                 <div className="input-group">

@@ -90,8 +90,6 @@ const ReportarDesaparecido = ({ desaparecido, setMenuGlobal }) => {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        alert('SIRVO');
-
         await usuarioAutenticado();
 
         

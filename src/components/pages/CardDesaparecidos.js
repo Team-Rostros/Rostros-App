@@ -9,7 +9,7 @@ const CardDesaparecidos = ({desaparecido, id,nombre, pais, fechad, departamento,
         <div className="cards__desaparecidos">
             <div className="card__des">
                 <div className="card__imagen centrar-texto">
-                    <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${id}`} alt="Foto perfil" />
+                    <img className="card__imgdes" src={`https://rostrosapp-servidor.herokuapp.com/api/desaparecido/photo/${id}`} alt="Foto perfil" />
                     <a href="#/"
                         onClick={()=>{setDesaparecido(desaparecido);setMenu(show);}}
                         className="bold azul card__detalle"

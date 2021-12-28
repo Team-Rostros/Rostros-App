@@ -17,7 +17,7 @@ const CardComentariosAdmin = ({
         
         <div className="grid grid__comentario">
             <div className="comentario__imagen">
-            <img className="card__imgdes" src={`http://localhost:4000/api/desaparecido/photo/${desaparecido?._id}`} alt="Foto perfil" />
+            <img className="card__imgdes" src={`https://rostrosapp-servidor.herokuapp.com/api/desaparecido/photo/${desaparecido?._id}`} alt="Foto perfil" />
             </div>
 
             <div className="comentario__texto">
